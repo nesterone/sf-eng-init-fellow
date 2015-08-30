@@ -17,7 +17,7 @@
 
 1. [Try JavaScript](https://www.javascript.com/try)
 1. [Brief intro to JavaScript](#brief-intro-to-javascript)
-1. [Javascripting](https://github.com/sethvincent/javascripting#javascripting)
+1. [Javascripting](#javascripting)
 
 
 ##Entry Barriers to Development
@@ -42,6 +42,13 @@ from [The Art of Unix Programming](http://www.catb.org/esr/writings/taoup/html/)
 
 **[⬆ back to top](#table-of-contents)**
 
+##Javascripting
+
+Go ahead and try next core workshop from NodeSchoole
+
+* [Javascripting](https://github.com/sethvincent/javascripting#javascripting)
+
+**[⬆ back to top](#table-of-contents)**
 
 **[<= Back](tools-for-development.md)**		*	*	*	**[Next =>](code-style.md)**
 
