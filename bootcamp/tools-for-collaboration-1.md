@@ -1,5 +1,7 @@
 #Tools for collaboration 1
 
+//TODO: rename to more clear like 'Learn Git and Github'
+
 **[<= Back](learning-principles.md)**		*	*	*	**[Next =>](tools-for-collaboration-2.md)**
 
 In that section we would concentrate on learning on 'How to use Git'.
@@ -36,6 +38,14 @@ You have to jump in two chats:
 
 **[⬆ back to top](#tools-for-collaboration-1)**
 
+Super cool tutorial
+
+[Learn Git Branching](http://pcottle.github.io/learnGitBranching)
+[Tech Talk: Linus Torvalds on git](https://www.youtube.com/watch?v=4XpnKHJAok8)[1:10:14]
+> Funny cheatsheet
+[Git Koans](http://stevelosh.com/blog/2013/04/git-koans/)
+
+
 ##Use Git and GitHub 1
 
 In the start, just play a bit with git
@@ -43,6 +53,9 @@ In the start, just play a bit with git
 > Time: ~30m
 
 * [Try Git](https://try.github.io) 
+
+> Time: 
+
 
 [Udacity](https://www.udacity.com) has not bad free course to master git and github.
 Let's start here with first two lessons
