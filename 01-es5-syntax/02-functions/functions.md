@@ -1,38 +1,40 @@
-#Functions and Data Structures
+#Functions
 
-**[<= Back](basic-syntax.md)**		*	*	*	**[Next =>](high-order-functions.md)**
+**[<= Back](01-program-structure/program-structure.md)**		*	*	*	**[Next =>](03-data-structures/data-structures.md)**
 
 ## Table of Contents
 
-> Time: (~10h)
+###Theory
 
-**'Theory'**
+####Books
 
-1. [Functions](http://eloquentjavascript.net/03_functions.html)
-1. [Data Structures: Objects and Arrays](http://eloquentjavascript.net/04_data.html)
+1. [JavaScript For developers]
+    * Function Expressions    [~3h]
+1. [Eloquent JavaScript]
+    * [Functions](http://eloquentjavascript.net/03_functions.html)  [~3h]
 
-**Practice**
+####Articles
 
-1. Write your own implementation
-	* Minimum
-	* Recursion 
-	* Bean counting
-	* The sum of a range
-	* Reversing and array
-	* A list
-	* Deep comparison
-1. Share through GitHub
+1. Some Article
+1. Other Article
+1. ffff
 
->Don't forget about 'Naming Conventions'
+###Exercises
 
-**Additional**
+1. [Minimum](http://eloquentjavascript.net/03_functions.html#h_XTmO7z7MPq)
+1. [Recursion](http://eloquentjavascript.net//03_functions.html#p_iDq2OgBOGw)
+1. [Bean Counting](http://eloquentjavascript.net/03_functions.html#h_XTmO7z7MPq)
 
-1. [Douglas Crockford: **Act III: Function the Ultimate**](https://www.youtube.com/watch?v=ya4UHuXNygM) [1:13:28]
-...
+###Additional
+
+1. [Douglas Crockford: **Act III: Function the Ultimate** ](https://www.youtube.com/watch?v=ya4UHuXNygM)[1:13:28]
+1. blalbalblab
+1. dfmdsfsfsdf
+1. sfdfsfsdfsd
 
 **[⬆ back to top](#table-of-contents)**
 
-**[<= Back](basic-syntax.md)**		*	*	*	**[Next =>](high-order-functions.md)**
+**[<= Back](01-program-structure/program-structure.md)**		*	*	*	**[Next =>](03-data-structures/data-structures.md)**
 
 
 

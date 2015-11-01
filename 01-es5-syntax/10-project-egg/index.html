@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="egg.js"></script>
+    <title>Egg Programming Language</title>
+</head>
+<body>
+    <script type="text/egg">
+        run("do(define(plusOne, fun(a, +(a, 1))),",
+                "   print(plusOne(10)))");
+
+        run("do(define(pow, fun(base, exp,",
+                "     if(==(exp, 0),",
+                "        1,",
+                "        *(base, pow(base, -(exp, 1)))))),",
+                "   print(pow(2, 10)))");
+    </script>
+</body>
+</html>
+

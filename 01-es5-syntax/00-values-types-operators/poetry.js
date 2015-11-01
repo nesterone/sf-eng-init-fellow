@@ -43,6 +43,4 @@ Print next poetry through console
 
 Take care about tabs, newlines etc.
 
-
 */
-	

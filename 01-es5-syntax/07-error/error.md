@@ -10,7 +10,6 @@
 > Time: (~6h)
 
 1. [Bugs and Error Handling](http://eloquentjavascript.net/08_error.html)
-1. [Regular Expressions](http://eloquentjavascript.net/09_regexp.html)
 
 **Practice**
 
