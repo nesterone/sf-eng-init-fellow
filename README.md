@@ -8,27 +8,24 @@ JavaScript and others learning materials which help you to become software engin
 
 ### Part I
 
-1. [Bootcamp](bootcamp/bootcamp.md) 
-    1. [Learning Principles](bootcamp/learning-principles.md)
-    1. [Casual Programming](bootcamp/casual-programming.md)
-    1. [Learn Git and Github](bootcamp/learn-git-and-github.md)
-    1. [Tools for development](bootcamp/tools-for-development.md)
-1. [JavaScript Syntax](syntax)
-    1. [Basic Syntax](syntax/basic-syntax.md)
-    1. [Functions and Data Structures](syntax/functions-and-data-structure.md)
-    1. [High-Order Functions](syntax/high-order-functions.md)
-    1. [The Secret Life of Objects](syntax/the-secret-life-of-objects.md)
-    1. [Project: Electronic Life](syntax/project-the-electronic-life.md)
-    1. [Modules(without AMD/CommonJS)](organize-code/modules.md)
-    1. [Error Handing. Regexp](syntax/error-handing-and-regexp.md)
-    1. [Project: A Programming Language](organize-code/project-programming-lang.md)
-1. [Maintainable Code](organize-code)
-    1. [Code Style and Naming conventions](bootcamp/code-style.md)
-    1. [Organize code](organize-code/modules.md)
-    1. [Unit Tests](organize-code/unit-tests.md)
-    1. Refactoring
-    1. Continuous Deliver
-1. [JavaScript and Browser](browser)
+1. [Bootcamp](00-bootcamp/bootcamp.md) 
+    1. [Learning Principles](00-bootcamp/learning-principles.md)
+    1. [Casual Programming](00-bootcamp/casual-programming.md)
+    1. [Learn Git and Github](00-bootcamp/learn-git-and-github.md)
+    1. [Tools for development](00-bootcamp/tools-for-development.md)
+1. [ECMAScript 5 Syntax](01-es5-syntax/es5-syntax.md)
+    1. [Values, Types and Operators](01-es5-syntax/00-values-types-operators/values-types-operators.md)
+    1. [Program Structure](01-es5-syntax/01-program-structure/program-structure.md)
+    1. [Functions](01-es5-syntax/02-functions/functions.md)
+    1. [Data Structures](01-es5-syntax/03-data-structures/data-structures.md)
+    1. [High-Order Functions](01-es5-syntax/04-high-order-functions/high-order-functions.md)
+    1. [Objects](01-es5-syntax/05-objects/objects.md)
+    1. [Project: Electronic Life](01-es5-syntax/06-project-elife/project-elife.md)
+    1. [Errors](01-es5-syntax/07-error/error.md)
+    1. [Regexp](01-es5-syntax/08-regexp/regexp.md)
+    1. [Modules](01-es5-syntax/09-modules/modules.md)
+    1. [Project: A Programming Language](01-es5-syntax/10-project-egg/project-egg.md)
+1. [Browser](browser)
     1. [Document Object Model](browser/dom.md)
     1. [Project: A Platform Game](browser/project-platform-game.md)
     1. [Drawing on Canvas](browser/drawing-on-canvas.md)
@@ -36,6 +33,12 @@ JavaScript and others learning materials which help you to become software engin
     1. [Project: A Paint Program](browser/project-paint-program.md)
 1. [Node.js](nodejs)
     1. [Project: Skill-Sharing Website](dds)
+1. [Code Organization](organize-code)
+    1. [Code Style and Naming conventions](bootcamp/code-style.md)
+    1. [Organize code](organize-code/modules.md)
+    1. [Unit Tests](organize-code/unit-tests.md)
+    1. Refactoring
+    1. Continuous Deliver
 
 
 ### Part II
