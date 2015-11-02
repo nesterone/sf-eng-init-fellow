@@ -6,18 +6,11 @@
 
 ###Theory
 
-#####Books
+|    Book                       |             Part                      |  Importance | Time |
+| ------------------------------| --------------------------------------|-------------|------|
+| JavaScript for Web Developers | Chapter 4: Variable, Scope and Memory |   High      |  ~5h |
+| [Eloquent JavaScript](http://eloquentjavascript.net/) | [Chapter 3: 03 Functions](http://eloquentjavascript.net/03_functions.html) | High | ~3h |
 
-1. [JavaScript For developers]
-    * Function Expressions    [~3h]
-1. [Eloquent JavaScript]
-    * [Functions](http://eloquentjavascript.net/03_functions.html)  [~3h]
-
-#####Articles
-
-1. Some Article
-1. Other Article
-1. ffff
 
 ###Exercises
 
@@ -28,9 +21,7 @@
 ###Additional
 
 1. [Douglas Crockford: **Act III: Function the Ultimate** ](https://www.youtube.com/watch?v=ya4UHuXNygM)[1:13:28]
-1. blalbalblab
-1. dfmdsfsfsdf
-1. sfdfsfsdfsd
+
 
 **[⬆ back to top](#table-of-contents)**
 

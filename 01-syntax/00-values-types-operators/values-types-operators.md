@@ -16,18 +16,17 @@ understand some tasks/samples send a link to the chat with question.
 
 ## Table of Contents
 
-**'Theory'**
+###Theory
 
-> Time: (~8h)
+|    Book                       |             Part                      |  Importance | Time |
+| ------------------------------| --------------------------------------|-------------|------|
+| JavaScript for Web Developers | Chapter 1: What Is JavaScript | High |  ~1h |
+| JavaScript for Web Developers | Chapter 2: Language Basics | High |  ~1h |
+| [Eloquent JavaScript](http://eloquentjavascript.net/) | [Introduction](http://eloquentjavascript.net/00_intro.html) | High | ~30m |
+| [Eloquent JavaScript](http://eloquentjavascript.net/) | [Chapter 1: Values, Types, and Operators](http://eloquentjavascript.net/01_values.html) | High | ~2h |
 
-1. [Introduction](http://eloquentjavascript.net/00_intro.html)
-1. [Values, Types, and Operators](http://eloquentjavascript.net/01_values.html)
-1. [Program Structure](http://eloquentjavascript.net/02_program_structure.html)
 
-**Practice**
-
->Time: (~2h)
-
+###Exercise
 
 1. Create repository **eloquent-samples**
 2. Write your own implementation of
