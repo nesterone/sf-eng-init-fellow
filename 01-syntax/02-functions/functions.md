@@ -6,14 +6,14 @@
 
 ###Theory
 
-####Books
+#####Books
 
 1. [JavaScript For developers]
     * Function Expressions    [~3h]
 1. [Eloquent JavaScript]
     * [Functions](http://eloquentjavascript.net/03_functions.html)  [~3h]
 
-####Articles
+#####Articles
 
 1. Some Article
 1. Other Article
