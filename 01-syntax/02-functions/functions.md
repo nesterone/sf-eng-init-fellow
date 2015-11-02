@@ -1,6 +1,6 @@
 #Functions
 
-**[<= Back](01-program-structure/program-structure.md)**		*	*	*	**[Next =>](03-data-structures/data-structures.md)**
+**[<= Back](../01-program-structure/program-structure.md)**		*	*	*	**[Next =>](../03-data-structures/data-structures.md)**
 
 ## Table of Contents
 
@@ -34,7 +34,7 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-**[<= Back](01-program-structure/program-structure.md)**		*	*	*	**[Next =>](03-data-structures/data-structures.md)**
+**[<= Back](../01-program-structure/program-structure.md)**		*	*	*	**[Next =>](../03-data-structures/data-structures.md)**
 
 
 
