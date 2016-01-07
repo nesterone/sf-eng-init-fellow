@@ -1,8 +1,10 @@
 <div id="grid"></div>
 <button id="new">New</button>
 <button id="next">Next generation</button>
+<button id="run">Auto run</button>
 
 <script>
+  var width = 30, height = 15;
 function box (b){
  var node = document.createElement('input');
   node.type = 'checkbox';
@@ -30,10 +32,72 @@ button.addEventListener('click', function(){
     elements[i].checked = true;
 });
   
-grid(4,5);
-var elements = document.getElementsByTagName('input');
+grid(height, width);
 
-//var y = document.getElementsByTagName('input');
-nextbutton.addEventListener('click', function(){
-console.log(elements[5].checked);});
+nextbutton.addEventListener('click', life);
+
+function life(){
+  var elements = document.getElementsByTagName('input');
+  for (var i = 0; i < height*width-1; i++){
+  if ((countneibor().life[i] == true) && (countneibor().neibor[i] < 2) || (countneibor().neibor[i] > 3))
+    elements[width * countneibor().x[i] + countneibor().y[i]].checked = false;
+  if ((countneibor().life[i] == false) && (countneibor().neibor[i] == 3))
+    elements[width * countneibor().x[i] + countneibor().y[i]].checked = true;
+   }}
+ 
+  
+function countneibor(){
+  var obj = {}; obj.x = []; obj.y = []; obj.neibor = []; obj.life = [];
+  var neibor = 0;
+  var elements = document.getElementsByTagName('input');
+  
+  for (var i = 0; i < height; i++)
+    for (var j = 0; j < width; j++)
+      {
+       if (width * i + j + 1 < width * height) 
+        if ((elements[width * i + j + 1].checked == true))
+       neibor+=1;
+        
+       if (width * i + j > 0) 
+        if (elements[width * i + j - 1].checked == true)
+       neibor+=1;
+        
+        if(i < height - 1){
+          if (elements[width*(i)+j+width].checked == true)
+       neibor+=1;
+         if (width*(i)+j+width+1 < width * height)
+          if (elements[width*(i)+j+width+1].checked == true)
+       neibor+=1;
+          if (elements[width*(i)+j+width-1].checked == true)
+       neibor+=1;}
+        
+        if(i > 0){
+          if (elements[width*(i)+j-width].checked == true)
+       neibor+=1;
+        
+          if (elements[width*(i)+j-width+1].checked == true)
+       neibor+=1;
+         if (width*(i)+j-width-1 > 0)
+          if (elements[width*(i)+j-width-1].checked == true)
+       neibor+=1;}
+obj.x.push(i);
+obj.y.push(j);
+obj.neibor.push(neibor);
+neibor=0;
+ if (elements[width * i + j].checked == true)
+   obj.life.push(true);
+     else obj.life.push(false);
+      } 
+return obj;}
+  
+ var running = null;
+  document.querySelector("#run").addEventListener("click", function() {
+    if (running) {
+      clearInterval(running);
+      running = null;
+    } else {
+      running = setInterval(life, 400);
+    }
+  });
+  
 </script>
