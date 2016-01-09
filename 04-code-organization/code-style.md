@@ -25,7 +25,7 @@
 
 > Time: (~1.5h)
 
-1. Try to run **jshint** with settings from [Code Style Guide](https://github.com/airbnb/javascript/tree/master/es5)
+1. Try to run **jshint** with settings from [Code Style Guide](https://github.com/brotherhood-of-javascript/javascript/tree/master/es5)
 
 >Hint: read jshint docs
 
