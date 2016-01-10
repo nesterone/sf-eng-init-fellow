@@ -4,7 +4,28 @@
  */
 
 
-// Your code here.
+function deepEqual(object_1, object_2) {
+    var counter_1 = 0;
+    var counter_2 = 0;
+
+    if ((typeof object_1 != 'object' && object_1 == null) &&
+        (typeof object_2 != 'object' && object_2 == null))
+        return false;
+
+    if (object_1 === object_2) return true;
+
+    for (var node in object_1)
+        counter_1++;
+
+    for (var node in object_2) {
+        counter_2++;
+        if (!(node in object_1) || !deepEqual(object_1[node], object_2[node]))
+            return false;
+    }
+
+    return (counter_1 == counter_2);
+
+}
 
 var obj = {here: {is: "an"}, object: 2};
 console.log(deepEqual(obj, obj));
