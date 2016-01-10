@@ -3,15 +3,16 @@
  *
  */
 
-var arrayValue = [1, 2, 3, 4, 5];
-function reverseArrayInPlace(x){
-var n = x.length - 1;
-for (var i = 0; i <= Math.floor((x.length - 1) / 2); i = i + 1){
- r = x[i];
- x[i] = x[n];
- x[n] = r;
- n = n - 1;}
-return x;}
+function reverseArrayInPlace(array) {
+    var index = array.length - 1;
+    for (var i = 0; i <= Math.floor((array.length - 1) / 2); i = i + 1) {
+        temp = array[i];
+        array[i] = array[index];
+        array[index] = temp;
+        index = index - 1;
+    }
+    return array;
+}
 
 var arrayValue = [1, 2, 3, 4, 5];
 reverseArrayInPlace(arrayValue);

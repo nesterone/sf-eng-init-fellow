@@ -3,26 +3,26 @@
  *
  */
 function range(starts, ends) {
-    var k = 0;
-    var b = [];
+    var temp = 0;
+    var array = [];
     if (starts > ends) {
-        k = starts;
+        temp = starts;
         starts = ends;
-        ends = k;
+        ends = temp;
     }
     var i = 0;
-    b[0] = starts;
-    while (b[i] < ends) {
-        b[i + 1] = b[i] + 1;
+    array[0] = starts;
+    while (array[i] < ends) {
+        array[i + 1] = array[i] + 1;
         i = i + 1;
     }
-    return b;
+    return array;
 }
 
-function sum(c) {
+function sum(array) {
     var summ = 0;
-    for (var i = 0; i < c.length; i = i + 1)
-        summ = summ + c[i];
+    for (var i = 0; i < array.length; i = i + 1)
+        summ = summ + array[i];
     return summ;
 }
 
