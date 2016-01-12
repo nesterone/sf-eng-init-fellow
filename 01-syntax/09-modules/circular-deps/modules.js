@@ -55,12 +55,18 @@ function define(depNames, moduleFunction) {
 }
 
 function backgroundReadFile(name, done){
-
     var xhr = new XMLHttpRequest();
     xhr.open('GET', name + ".js");
     xhr.onload = function () {
         done(xhr.responseText);
     };
     xhr.send();
-
 }
+
+function readFile(name){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', name + ".js", false);
+    xhr.send(null);
+    return xhr.responseText;
+}
+
