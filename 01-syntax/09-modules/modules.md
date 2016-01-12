@@ -14,7 +14,10 @@
 
 1. Write your own implementation
 	* Month Names
-1. Separate your  'Electronic Life' project by modules (not AMD or CommonJS)
+1. Separate your  'Electronic Life' project by modules
+1. Provide circular dependencies between A and B modules
+    * fix CommonJs-like loader to resolve it
+    * fix AMD-like loader to resolve circular dependencies 
 
 **[⬆ back to top](#table-of-contents)**
 
