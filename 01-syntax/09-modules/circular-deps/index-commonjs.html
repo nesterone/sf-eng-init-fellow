@@ -5,7 +5,9 @@
     <title>CommonJs like modules</title>
     <script src="modules.js"></script>
     <script>
-        require("commonjs/A");
+        var A = require("commonjs/A");
+
+        A.printFrinendName();
     </script>
 </head>
 <body>

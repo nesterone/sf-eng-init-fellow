@@ -1,9 +1,11 @@
 var A = require("commonjs/A");
 
-console.log("Loaded dependency to: " + A);
+var name = "Module B (CommonJs)";
 
-var B = "Module B (CommonJs)";
+console.log("Loaded: " + name);
 
-console.log("Loaded: " + B);
+module.exports.name = name;
 
-module.exports = B;
+module.exports.printFrinendName = function () {
+    console.log("My friend name is " + A.name);
+};
