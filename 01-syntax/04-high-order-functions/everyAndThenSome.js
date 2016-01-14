@@ -1,15 +1,19 @@
-function every(a, b){
-  var x = true;
-  for (var i = 0; i < a.length; i++){
-    if (b(a[i]) != true)
-      x = b(a[i]);  }
-  return x;}
-function some(a, b){
-  var x = false;
-  for (var i = 0; i < a.length; i++){
-    if (b(a[i]) == true)
-      x = b(a[i]);  }
-  return x;}
+function every(arrayOfValues, method) {
+    var result = true;
+    for (var i = 0; i < arrayOfValues.length; i++) {
+        if (method(arrayOfValues[i]) != true)
+            result = method(arrayOfValues[i]);
+    }
+    return result;
+}
+function some(arrayOfValues, method) {
+    var result = false;
+    for (var i = 0; i < arrayOfValues.length; i++) {
+        if (method(arrayOfValues[i]) == true)
+            result = method(arrayOfValues[i]);
+    }
+    return result;
+}
 
 console.log(every([NaN, NaN, NaN], isNaN));
 // → true
