@@ -1,17 +1,17 @@
-topEnv["array"] = function(){
+topEnv["array"] = function () {
     return Array.prototype.slice.call(arguments, 0);
 };
 
-topEnv["print"] = function(value) {
+topEnv["print"] = function (value) {
     console.log(value);
     return value;
 };
 
-topEnv["length"] = function(array) {
+topEnv["length"] = function (array) {
     return array.length;
 };
 
-topEnv["element"] = function(array, n) {
+topEnv["element"] = function (array, n) {
     return array[n];
 };
 
@@ -26,8 +26,10 @@ run("do(define(sum, fun(array,",
 
 
 function skipSpace(string) {
-    var start = string.match(/^(\s|#.*)*/);
-    return string.slice(start[0].length);
+    var regExp = /^(\s|#.*)*/;
+    var first = regExp.exec(string);
+    if (first == -1) return "";
+    return string.slice(first[0].length);
 }
 
 console.log(parse("# hello\nx"));
