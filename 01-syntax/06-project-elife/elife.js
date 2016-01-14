@@ -1,7 +1,7 @@
 function SmartPlantEater() {
     this.energy = 60;
 }
-SmartPlantEater.prototype.act = function(view) {
+SmartPlantEater.prototype.act = function (view) {
     var space = view.find(" ");
     if (this.energy > 90 && space)
         return {type: "reproduce", direction: space};
@@ -13,9 +13,10 @@ SmartPlantEater.prototype.act = function(view) {
 };
 
 function Tiger() {
-    this.energy = 200;}
+    this.energy = 200;
+}
 
-Tiger.prototype.act = function(view) {
+Tiger.prototype.act = function (view) {
     var space = view.find(" ");
     if (this.energy > 400 && space)
         return {type: "reproduce", direction: space};
@@ -45,8 +46,10 @@ animateWorld(new LifelikeWorld(
         "##  **  O   O  #  #    ***  ***        ###      ** #",
         "###               #   *****                    ****#",
         "####################################################"],
-    {"#": Wall,
+    {
+        "#": Wall,
         "@": Tiger,
         "O": SmartPlantEater, // from previous exercise
-        "*": Plant}
+        "*": Plant
+    }
 ));
