@@ -1,5 +1,11 @@
-var B = "Module B (CommonJs)";
+var A = require("commonjs/A");
 
-console.log("Loaded: " + B);
+var name = "Module B (CommonJs)";
 
-module.exports = B;
+console.log("Loaded: " + name);
+
+module.exports.name = name;
+
+module.exports.print = function () {
+    console.log("Friendship of '" + name + "' and '" + A.name + "'");
+};
