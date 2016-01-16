@@ -24,7 +24,8 @@ function getModule(name) {
     defineCache[name] = module;
     backgroundReadFile(name, function(code) {
         currentMod = module;
-        new Function("", code)();
+        var code = new Function("define", code);
+        code(define);
     });
     return module;
 }
@@ -52,3 +53,20 @@ function define(depNames, moduleFunction) {
     }
     whenDepsLoaded();
 }
+
+function backgroundReadFile(name, done){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', name + ".js");
+    xhr.onload = function () {
+        done(xhr.responseText);
+    };
+    xhr.send();
+}
+
+function readFile(name){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', name + ".js", false);
+    xhr.send(null);
+    return xhr.responseText;
+}
+

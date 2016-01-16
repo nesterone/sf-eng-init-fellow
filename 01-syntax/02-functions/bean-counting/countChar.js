@@ -3,7 +3,13 @@
  *
  */
 
-// Your code here.
+function countChar(string, char) {
+    var result = 0;
+    for (var i = 0; i <= string.length - 1; i++)
+        if (string.charAt(i) == char)
+            result++;
+    return result;
+}
 
 
 console.log(countChar("kakkerlak", "k"));

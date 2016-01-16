@@ -3,12 +3,15 @@
  *
  */
 
-// Your code here.
+function reverseArray(array) {
+    var result = [], index = 0;
+    for (var i = array.length - 1; i >= 0; i = i - 1) {
+        result[index] = array[i];
+        index = index + 1;
+    }
+    return result;
+}
 
 console.log(reverseArray(["A", "B", "C"]));
 // → ["C", "B", "A"];
 
-var arrayValue = [1, 2, 3, 4, 5];
-reverseArrayInPlace(arrayValue);
-console.log(arrayValue);
-// → [5, 4, 3, 2, 1]
