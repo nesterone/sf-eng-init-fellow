@@ -324,7 +324,7 @@ var valley = new LifelikeWorld(
         "*": Plant}
 );
 
-animateWorld(valley);
+
 
 
 
