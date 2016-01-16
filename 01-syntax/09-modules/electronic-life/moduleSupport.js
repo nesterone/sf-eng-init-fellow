@@ -21,5 +21,12 @@ function readFile(name) {
     xhr.send(null);
     return xhr.responseText;
 }
-
+/**module World */
 var animateWorld = require('animateworld');
+var plan = require('world').plan;
+var Grid = require('world').Grid;
+var Vector = require('world').Vector;
+var randomElement = require('world').randomElement;
+var directions = require('world').directions;
+var directionNames = require('world').directionNames;
+
