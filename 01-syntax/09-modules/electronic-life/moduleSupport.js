@@ -23,32 +23,3 @@ function readFile(name) {
 }
 
 
-
-/**module animateworld */
-var animateWorld = require('animateworld').animateWorld;
-
-/**module world */
-var plan = require('world').plan;
-var Grid = require('world').Grid;
-var Vector = require('world').Vector;
-var randomElement = require('world').randomElement;
-var directions = require('world').directions;
-var directionNames = require('world').directionNames;
-var World = require('world').World;
-var View = require('world').View;
-var LifelikeWorld = require('world').LifelikeWorld;
-var actionTypes = require('world').actionTypes;
-
-/**module ecosystem */
-var BouncingCritter = require('ecosystem').BouncingCritter;
-var Wall = require('ecosystem').Wall;
-var world = require('ecosystem').world;
-var test = require('ecosystem').test;
-var dirPlus = require('ecosystem').dirPlus;
-var WallFollower = require('ecosystem').WallFollower;
-var Plant = require('ecosystem').Plant;
-var PlantEater = require('ecosystem').PlantEater;
-var valley = require('ecosystem').valley;
-
-animateWorld(valley);
-

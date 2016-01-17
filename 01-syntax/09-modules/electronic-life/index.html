@@ -3,4 +3,42 @@
 </head>
 <body>
 <script src="moduleSupport.js"></script>
+<script>
+
+
+    /**module animateworld */
+    var moduleAnimateWorld = require('animateworld').animateWorld;
+
+    /**module world */
+    var moduleWorld = require('world');
+
+    var Grid = moduleWorld.Grid;
+    var Vector = moduleWorld.Vector;
+    var randomElement = moduleWorld.randomElement;
+    var directions = moduleWorld.directions;
+    var directionNames = moduleWorld.directionNames;
+    var World = moduleWorld.World;
+    var View = moduleWorld.View;
+    var LifelikeWorld = moduleWorld.LifelikeWorld;
+    var actionTypes = moduleWorld.actionTypes;
+
+    /**module ecosystem */
+    var moduleEcosystem = require('ecosystem');
+
+    var BouncingCritter = moduleEcosystem.BouncingCritter;
+    var Wall = moduleEcosystem.Wall;
+    var world = moduleEcosystem.world;
+    var test = moduleEcosystem.test;
+    var dirPlus = moduleEcosystem.dirPlus;
+    var WallFollower = moduleEcosystem.WallFollower;
+    var Plant = moduleEcosystem.Plant;
+    var PlantEater = moduleEcosystem.PlantEater;
+    var valley = moduleEcosystem.valley;
+
+</script>
+
+<script src="animateworld.js"></script>
+<script>moduleAnimateWorld(valley);</script>
+
+
 </body>
