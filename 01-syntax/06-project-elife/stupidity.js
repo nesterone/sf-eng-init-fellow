@@ -1,6 +1,3 @@
-/**
- * Created by Владелец on 16.01.2016.
- */
 function SmartPlantEater() {
     this.energy = 60;
 }

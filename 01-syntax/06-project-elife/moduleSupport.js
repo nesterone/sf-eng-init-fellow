@@ -1,6 +1,3 @@
-/**
- * Created by Владелец on 14.01.2016.
- */
 function require(name) {
     if (name in require.cache)
         return require.cache[name];
