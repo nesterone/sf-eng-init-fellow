@@ -25,7 +25,7 @@ function readFile(name) {
 
 
 /**module animateworld */
-var animateWorld = require('animateworld');
+var animateWorld = require('animateworld').animateWorld;
 
 /**module world */
 var plan = require('world').plan;
@@ -49,4 +49,6 @@ var WallFollower = require('ecosystem').WallFollower;
 var Plant = require('ecosystem').Plant;
 var PlantEater = require('ecosystem').PlantEater;
 var valley = require('ecosystem').valley;
+
+animateWorld(valley);
 

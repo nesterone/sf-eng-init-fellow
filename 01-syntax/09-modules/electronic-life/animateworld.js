@@ -1,8 +1,3 @@
-// test: no
-
-(function () {
-    "use strict";
-
     var active = null;
 
     function Animated(world) {
@@ -56,7 +51,7 @@
         this.button.style.color = "red";
     };
 
-    window.animateWorld = function (world) {
+    module.exports.animateWorld = function (world) {
         new Animated(world);
     };
-})();
+
