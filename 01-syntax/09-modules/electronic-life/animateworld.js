@@ -1,3 +1,14 @@
+var BouncingCritter = require('ecosystem').BouncingCritter;
+var Wall = require('ecosystem').Wall;
+var world = require('ecosystem').world;
+var test = require('ecosystem').test;
+var dirPlus = require('ecosystem').dirPlus;
+var WallFollower = require('ecosystem').WallFollower;
+var Plant = require('ecosystem').Plant;
+var PlantEater = require('ecosystem').PlantEater;
+var valley = require('ecosystem').valley;
+
+
 var active = null;
 
 function Animated(world) {
@@ -51,6 +62,9 @@ Animated.prototype.disable = function () {
     this.button.style.color = "red";
 };
 
-module.exports.animateWorld = function (world) {
-    new Animated(world);
+
+var animateWorld = function (worldNew) {
+    new Animated(worldNew);
 };
+
+module.exports = animateWorld;

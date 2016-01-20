@@ -1,23 +1,36 @@
+/**module world */
+var World = require('world').World;
+var Grid = require('world').Grid;
+var Vector = require('world').Vector;
+var randomElement = require('world').randomElement;
+var directions = require('world').directions;
+var directionNames = require('world').directionNames;
+var View = require('world').View;
+var LifelikeWorld = require('world').LifelikeWorld;
+var actionTypes = require('world').actionTypes;
 
 function BouncingCritter() {
     this.direction = randomElement(directionNames);
 };
 
-BouncingCritter.prototype.act = function(view) {
+BouncingCritter.prototype.act = function (view) {
     if (view.look(this.direction) != " ")
         this.direction = view.find(" ") || "s";
     return {type: "move", direction: this.direction};
 };
 
-function Wall() {}
+function Wall() {
+}
 
-var world = new World(plan, {"#": Wall,
-    "o": BouncingCritter});
+var world = new World(plan, {
+    "#": Wall,
+    "o": BouncingCritter
+});
 
 var test = {
     prop: 10,
-    addPropTo: function(array) {
-        return array.map(function(elt) {
+    addPropTo: function (array) {
+        return array.map(function (elt) {
             return this.prop + elt;
         }.bind(this));
     }
@@ -25,8 +38,8 @@ var test = {
 
 var test = {
     prop: 10,
-    addPropTo: function(array) {
-        return array.map(function(elt) {
+    addPropTo: function (array) {
+        return array.map(function (elt) {
             return this.prop + elt;
         }, this); // ? no bind
     }
@@ -42,7 +55,7 @@ function WallFollower() {
     this.dir = "s";
 }
 
-WallFollower.prototype.act = function(view) {
+WallFollower.prototype.act = function (view) {
     var start = this.dir;
     if (view.look(dirPlus(this.dir, -3)) != " ")
         start = this.dir = dirPlus(this.dir, -2);
@@ -56,7 +69,7 @@ WallFollower.prototype.act = function(view) {
 function Plant() {
     this.energy = 3 + Math.random() * 4;
 }
-Plant.prototype.act = function(view) {
+Plant.prototype.act = function (view) {
     if (this.energy > 15) {
         var space = view.find(" ");
         if (space)
@@ -69,7 +82,7 @@ Plant.prototype.act = function(view) {
 function PlantEater() {
     this.energy = 20;
 }
-PlantEater.prototype.act = function(view) {
+PlantEater.prototype.act = function (view) {
     var space = view.find(" ");
     if (this.energy > 60 && space)
         return {type: "reproduce", direction: space};
@@ -94,9 +107,11 @@ var valley = new LifelikeWorld(
         "#***        ##**    O    **#",
         "##****     ###***       *###",
         "############################"],
-    {"#": Wall,
+    {
+        "#": Wall,
         "O": PlantEater,
-        "*": Plant}
+        "*": Plant
+    }
 );
 
 
