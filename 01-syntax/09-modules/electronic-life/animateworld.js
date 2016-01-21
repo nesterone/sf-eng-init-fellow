@@ -6,7 +6,6 @@ var dirPlus = require('ecosystem').dirPlus;
 var WallFollower = require('ecosystem').WallFollower;
 var Plant = require('ecosystem').Plant;
 var PlantEater = require('ecosystem').PlantEater;
-var valley = require('ecosystem').valley;
 
 
 var active = null;

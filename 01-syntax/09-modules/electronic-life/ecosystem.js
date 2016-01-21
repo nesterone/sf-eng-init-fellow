@@ -1,13 +1,9 @@
 /**module world */
 var World = require('world').World;
 var Grid = require('world').Grid;
-var Vector = require('world').Vector;
 var randomElement = require('world').randomElement;
 var directions = require('world').directions;
 var directionNames = require('world').directionNames;
-var View = require('world').View;
-var LifelikeWorld = require('world').LifelikeWorld;
-var actionTypes = require('world').actionTypes;
 
 function BouncingCritter() {
     this.direction = randomElement(directionNames);
@@ -94,26 +90,6 @@ PlantEater.prototype.act = function (view) {
 };
 
 
-var valley = new LifelikeWorld(
-    ["############################",
-        "#####                 ######",
-        "##   ***                **##",
-        "#   *##**         **  O  *##",
-        "#    ***     O    ##**    *#",
-        "#       O         ##***    #",
-        "#                 ##**     #",
-        "#   O       #*             #",
-        "#*          #**       O    #",
-        "#***        ##**    O    **#",
-        "##****     ###***       *###",
-        "############################"],
-    {
-        "#": Wall,
-        "O": PlantEater,
-        "*": Plant
-    }
-);
-
 
 module.exports.BouncingCritter = BouncingCritter;
 module.exports.Wall = Wall;
@@ -123,6 +99,6 @@ module.exports.dirPlus = dirPlus;
 module.exports.WallFollower = WallFollower;
 module.exports.Plant = Plant;
 module.exports.PlantEater = PlantEater;
-module.exports.valley = valley;
+
 
 
