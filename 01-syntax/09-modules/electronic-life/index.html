@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+</head>
+<body>
+
+
+<script src="moduleSupport.js"></script>
+<script>
+    var Wall = require('ecosystem').Wall;
+    var Plant = require('ecosystem').Plant;
+    var PlantEater = require('ecosystem').PlantEater;
+    var LifelikeWorld = require('world').LifelikeWorld;
+
+    var valley = new LifelikeWorld(
+               ["############################",
+                "#####                 ######",
+                "##   ***                **##",
+                "#   *##**         **  O  *##",
+                "#    ***     O    ##**    *#",
+                "#       O         ##***    #",
+                "#                 ##**     #",
+                "#   O       #*             #",
+                "#*          #**       O    #",
+                "#***        ##**    O    **#",
+                "##****     ###***       *###",
+                "############################"],
+            {
+                "#": Wall,
+                "O": PlantEater,
+                "*": Plant
+            }
+    );
+
+    require('animateworld')(valley);
+</script>
+
+
+</body>
