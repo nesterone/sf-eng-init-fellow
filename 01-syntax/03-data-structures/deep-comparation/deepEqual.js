@@ -28,9 +28,66 @@ function deepEqual(object_1, object_2) {
 }
 
 var obj = {here: {is: "an"}, object: 2};
+
 console.log(deepEqual(obj, obj));
 // → true
-console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log(deepEqual({here: 1}, {here: 1, object: 2}));
 // → false
+console.log(deepEqual(1, {here: 1, object: 2}));
+//→ false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
+
+console.log(deepEqual({
+        a : {
+            t : {
+                msg: "hello"
+            },
+            v: "sssss"
+        }
+    }, {
+        here: {
+            is: "an"
+        },
+        object: 2
+    }
+));
+//→ false
+
+console.log(deepEqual({
+    a: {
+        v: "sssss",
+        t: {
+            msg: "hello"
+        }
+
+    }
+}, {
+    a: {
+        t: {
+            msg: "hell"
+        },
+        v: "sssss"
+    }
+
+}));
+
+//→ false
+
+console.log(deepEqual({
+    a : {
+        t : {
+            msg: "hello"
+        },
+        v: "sssss"
+    }
+}, {
+    a : {
+        t : {
+            msg: "hello"
+        },
+        v: "sssss"
+    }
+}));
+
+//→ true
