@@ -4,29 +4,38 @@
  */
 
 
-function deepEqual(object_1, object_2) {
-    var counter_1 = 0;
-    var counter_2 = 0;
+function deepEqual(object1, object2) {
+    var counter1 = 0;
+    var counter2 = 0;
 
-    if (object_1 === object_2) {
+    if (object1 === object2) {
         return true;
     }
-    if (typeof object_1 != 'object' || object_1 == null ||
-        typeof object_2 != 'object' || object_2 == null) {
-        return false;
+
+    function isObject(obj) {
+        if (typeof obj != 'object' || obj == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
-    for (var node in object_1) counter_1++;
+    if (!isObject(object1) || !isObject(object2))
+        return false;
 
-    for (var node in object_2) {
-        counter_2++;
-        if (!(node in object_1) || !deepEqual(object_1[node], object_2[node])) {
 
+    for (var prop in object1) counter1++;
+
+    for (var prop in object2) {
+        counter2++;
+        if (!(prop in object1)
+            || !deepEqual(object1[prop], object2[prop])) {
             return false;
         }
     }
 
-    return counter_1 == counter_2;
+    return counter1 == counter2;
 
 }
 
