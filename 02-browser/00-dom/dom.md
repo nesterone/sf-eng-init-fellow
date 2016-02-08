@@ -20,14 +20,11 @@
 	* Build a table
 	* Elements by tag name
 	* The cat's hat
-	* Censored Keyboard
-	* Mouse Trail
-	* Tabs
-1. Publish through Github
 
 **Additional**
 
 1. [Talk: The DOM is a Mess](http://ejohn.org/blog/the-dom-is-a-mess/) [1:12]
+> Is it still an issue ?
 1. [An Inconvenient API: The Theory of the Dom](http://yuiblog.com/blog/2006/10/20/video-crockford-domtheory) [1:18]
 1. [Ariya Hidayat - JavaScript and the Browser: Under the Hood](https://www.youtube.com/watch?v=dibzLw4wPms) [29:13]
 
