@@ -1,6 +1,6 @@
 #Drawing on canvas
 
-**[<= Back](drawing-on-canvas.md)**		*	*	*	**[Next =>](http-and-forms.md)**
+**[<= Back](../02-project-platform-game/project-platform-game.md)**		*	*	*	**[Next =>](../04-http/http.md)**
 
 ## Table of Contents
 
@@ -27,4 +27,4 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-**[<= Back](drawing-on-canvas.md)**		*	*	*	**[Next =>](http-and-forms.md)**
+**[<= Back](../02-project-platform-game/project-platform-game.md)**		*	*	*	**[Next =>](../04-http/http.md)**
