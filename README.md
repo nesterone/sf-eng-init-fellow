@@ -45,7 +45,7 @@ JavaScript and others learning materials which help you to become software engin
 
 
 ### Part II
-
+> Be aware it's not ready ;-)
 1.  [Browser. HTML. CSS. Responsive. Your Game](/week-4)
     1. HTML/CSS. Responsive layout. Choose your game
     1. Prototype your UI/UX. HTML+CSS only
