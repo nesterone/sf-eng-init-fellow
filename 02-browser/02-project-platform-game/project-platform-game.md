@@ -1,6 +1,6 @@
 #Project: A Platform Game
 
-**[<= Back](dom.md)**		*	*	*	**[Next =>](drawing-on-canvas.md)**
+***[<= Back](../01-handling-events/handling-events.md)**		*	*	*	**[Next =>](../03-drawing-on-canvas/drawing-on-canvas.md)**
 
 ## Table of Contents
 
@@ -26,4 +26,4 @@
 **[⬆ back to top](#table-of-contents)**
 
 
-**[<= Back](dom.md)**		*	*	*	**[Next =>](drawing-on-canvas.md)**
+***[<= Back](../01-handling-events/handling-events.md)**		*	*	*	**[Next =>](../03-drawing-on-canvas/drawing-on-canvas.md)**

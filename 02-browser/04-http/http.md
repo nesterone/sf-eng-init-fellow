@@ -1,6 +1,6 @@
 #HTTP and Forms
 
-**[<= Back](drawing-on-canvas.md)**		*	*	*	**[Next =>](project-platform-game.md)**
+**[<= Back](../03-drawing-on-canvas/drawing-on-canvas.md)**		*	*	*	**[Next =>](../05-forms/forms.md)**
 
 ## Table of Contents
 
@@ -8,7 +8,7 @@
 
 1. [HTTP](http://eloquentjavascript.net/17_http.html)
 1. [Forms and Form Fields](http://eloquentjavascript.net/18_forms.html)
-1. [Sinon Fake Server](http://sinonjs.org/docs/#server) 
+
 
 **Practice**
 
@@ -17,9 +17,7 @@
 1. Exercises
 	* Content negotiation
 	* Waiting for multiple promises
-	* A JavaScript workbench
-	* Autocompletion
-	* Conway’s Game of Life
+
 
 1. TODO: Write your XHR warper with FAKE server mock
 	* form as a separate project 
@@ -35,4 +33,4 @@
 
 **[⬆ back to top](#table-of-contents)**
 
-**[<= Back](drawing-on-canvas.md)**		*	*	*	**[Next =>](project-platform-game.md)**
+**[<= Back](../03-drawing-on-canvas/drawing-on-canvas.md)**		*	*	*	**[Next =>](../05-forms/forms.md)**
