@@ -30,8 +30,22 @@
 
 
 <script>
-    function byTagName(node, tagName) {
-        // Your code here.
+    function byTagName(node, string) {
+        var array = [];
+
+        function inner(node, string) {
+            if (node.nodeType == document.ELEMENT_NODE) {
+                for (var i = 0; i < node.childNodes.length; i++) {
+                    if (node.childNodes[i].tagName == string.toUpperCase()) {
+                        array.push(node.childNodes[i].tagName);
+                    }
+                    inner(node.childNodes[i], string);
+                }
+            }
+            return array;
+        }
+
+        return inner(node, string);
     }
 
     console.log(byTagName(document.body, "h1").length);
