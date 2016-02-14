@@ -3,7 +3,19 @@ function average(array) {
     return array.reduce(plus) / array.length;
 }
 
-// Your code here.
+var counter = 0, age = 0;
+for (var j = 15; j < 22; j++) {
+    for (var i = 0; i < ancestry.length; i++) {
+        if (Math.ceil(ancestry[i].died / 100) == j) {
+            age = age + (ancestry[i].died - ancestry[i].born);
+            counter = counter + 1;
+        }
+    }
+    console.log('In', j, 'century leave', counter, 'persons with average age', age / counter);
+    counter = 0;
+    age = 0;
+}
+;
 
 // → 16: 43.5
 //   17: 51.2

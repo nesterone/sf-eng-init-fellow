@@ -1,6 +1,9 @@
 var arrays = [[1, 2, 3], [4, 5], [6]];
 
-// Your code here.
+var result = arrays.reduce(function (i, current) {
+    return i.concat(current);
+}, [])
+console.log(result);
 
 
 // → [1, 2, 3, 4, 5, 6]
