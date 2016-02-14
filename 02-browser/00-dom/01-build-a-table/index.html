@@ -1,21 +1,61 @@
 <!doctype html>
 <head>
-<title>Build a Table</title>
+    <title>Build a Table</title>
 
-<style>
-    /* Defines a cleaner look for tables */
-    table  { border-collapse: collapse; }
-    td, th { border: 1px solid black; padding: 3px 8px; }
-    th     { text-align: left; }
-</style>
+    <style>
+        /* Defines a cleaner look for tables */
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+            padding: 3px 8px;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
 
 </head>
 
 <body>
 
 <script>
+    var MOUNTAINS = [
+        {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
+        {name: "Everest", height: 8848, country: "Nepal"},
+        {name: "Mount Fuji", height: 3776, country: "Japan"},
+        {name: "Mont Blanc", height: 4808, country: "Italy/France"},
+        {name: "Vaalserberg", height: 323, country: "Netherlands"},
+        {name: "Denali", height: 6168, country: "United States"},
+        {name: "Popocatepetl", height: 5465, country: "Mexico"}
+    ];
     function buildTable(data) {
-        // Your code here.
+        var table = document.createElement('table');
+        var newTr = document.createElement('tr');
+        for (var i = 0; i <= 2; i++) {
+            var newTh = document.createElement('th');
+            var tableHeader = Object.keys(data[0])[i];
+            var text = document.createTextNode(tableHeader);
+            newTh.appendChild(text);
+            newTr.appendChild(newTh);
+        }
+        table.appendChild(newTr);
+
+        for (var i = 0; i <= data.length - 1; i++) {
+            newTr = document.createElement('tr');
+            for (var j = 0; j <= 2; j++) {
+                var newTd = document.createElement('td');
+                var tableCellValue = data[i][Object.keys(data[i])[j]];
+                text = document.createTextNode(tableCellValue);
+                newTd.appendChild(text);
+                newTr.appendChild(newTd);
+            }
+            table.appendChild(newTr);
+        }
+        return table;
     }
 
     document.body.appendChild(buildTable(MOUNTAINS));
