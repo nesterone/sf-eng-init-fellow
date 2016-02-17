@@ -1,7 +1,7 @@
 
 var http = require("http"),
     fs = require("fs"),
-    mime = require("../.resources/mime");
+    mime = require("mime");
 
 var methods = Object.create(null);
 
