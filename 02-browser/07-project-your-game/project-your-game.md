@@ -18,9 +18,9 @@ List of games:
 
 **Requirements**
 
-1. Your implementation shouldn't cover all features of originals, concentrate on few
+1. Your implementation shouldn't cover all features of original, concentrate on few
 1. Think about work which have to be done
-    * split your work to tasks
+    * split your work into tasks
     * approve them with mentor and estimate
 1. Design gameplay (score, hints, etc)
 1. Fill README.md with appropriate info, it`s very important part of the project 
