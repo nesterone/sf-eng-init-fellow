@@ -17,7 +17,7 @@ tools["Flood fill"] = function (event, cx) {
     }
 
     function neiborDetermination(data, i, j) {
-        var naiborList = Object.create(null);
+        var naiborList = {};
         naiborList.x = [];
         naiborList.y = [];
 
@@ -38,18 +38,31 @@ tools["Flood fill"] = function (event, cx) {
             naiborList.y.push(j + 1);
         }
 
-        for (var count_2 = 0; count_2 <= 3; count_2++) {
-            var aa = naiborList.x[count_2];
-            var bb = pointsList.x;
-            if (bb.forEach(function(i){})) {
-                pointsList.x.push(naiborList.x[count_2]);
-                pointsList.y.push(naiborList.y[count_2]);
+        for (var k = 0; k < naiborList.x.length; k++) {
+            if (!isIn(pointsList.x,pointsList.y,naiborList.x[k],naiborList.y[k])) {
+                pointsList.x.push(naiborList.x[k]);
+                pointsList.y.push(naiborList.y[k]);
             }
-
         }
+
     }
 
-    neiborDetermination(data, pointsList.x[pointsList.x.length - 1], pointsList.y[pointsList.y.length - 1]);
+    function isIn(arrx, arry, bx, by) {
+        var counter = 0;
+        for (var i = 0; i < arrx.length; i++)
+            if ((arrx[i] == bx) && (arry[i] == by)) {
+                counter++;
+            }
+        if (counter > 0)
+            return true;
+        else return false;
+    }
+
+    for (var l = 0; l < pointsList.x.length; l++) {
+        neiborDetermination(data, pointsList.x[l], pointsList.y[l]);
+    }
+
+    console.log(pointsList);
 
 
     function colorDetermination(data, i, j) {
@@ -63,12 +76,9 @@ tools["Flood fill"] = function (event, cx) {
     }
 
 
-    for (var i = 0; i < canvas.width; i++) {
-        for (var j = 0; j < canvas.height; j++) {
-            if (colorDetermination(data, i, j)) {
-                cx.fillRect(i, j, 1, 1);
-            }
-        }
+    for (var i = 0; i < pointsList.x.length; i++) {
+        cx.fillRect(pointsList.x[i], pointsList.y[i], 1, 1);
     }
+
 
 };
