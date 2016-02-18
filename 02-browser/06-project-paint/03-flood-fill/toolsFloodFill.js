@@ -39,7 +39,7 @@ tools["Flood fill"] = function (event, cx) {
         }
 
         for (var k = 0; k < naiborList.x.length; k++) {
-            if (!isIn(pointsList.x,pointsList.y,naiborList.x[k],naiborList.y[k])) {
+            if (!isIn(pointsList.x, pointsList.y, naiborList.x[k], naiborList.y[k])) {
                 pointsList.x.push(naiborList.x[k]);
                 pointsList.y.push(naiborList.y[k]);
             }
@@ -48,15 +48,22 @@ tools["Flood fill"] = function (event, cx) {
     }
 
     function isIn(arrx, arry, bx, by) {
+        var indices = [];
+        var idx = arrx.indexOf(bx);
+        while (idx != -1) {
+            indices.push(idx);
+            idx = arrx.indexOf(bx, idx + 1);
+        }
         var counter = 0;
-        for (var i = 0; i < arrx.length; i++)
-            if ((arrx[i] == bx) && (arry[i] == by)) {
+        for (var i = 0; i < indices.length; i++) {
+            if ((arrx[indices[i]] == bx) && (arry[indices[i]] == by)) {
                 counter++;
             }
-        if (counter > 0)
-            return true;
+        }
+        if (counter > 0) return true;
         else return false;
-    }
+    };
+
 
     for (var l = 0; l < pointsList.x.length; l++) {
         neiborDetermination(data, pointsList.x[l], pointsList.y[l]);
