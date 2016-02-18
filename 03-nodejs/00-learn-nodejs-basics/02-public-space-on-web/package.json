@@ -1,0 +1,16 @@
+{
+  "name": "02-fixing-a-leak",
+  "version": "0.0.1",
+  "description": "",
+  "main": "piblicSpaceServer.js",
+  "dependencies": {
+    "mime": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}

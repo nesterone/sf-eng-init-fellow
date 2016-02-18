@@ -1,0 +1,16 @@
+{
+  "name": "01-project-skill-sharing",
+  "version": "0.0.1",
+  "description": "",
+  "main": "skillsharingServer.js",
+  "dependencies": {
+    "ecstatic": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT"
+}
