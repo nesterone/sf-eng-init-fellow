@@ -1,4 +1,19 @@
-// Your code here.
+function every(arrayOfValues, method) {
+    var result = true;
+    for (var i = 0; i < arrayOfValues.length; i++) {
+        if (method(arrayOfValues[i]) != true)
+            result = method(arrayOfValues[i]);
+    }
+    return result;
+}
+function some(arrayOfValues, method) {
+    var result = false;
+    for (var i = 0; i < arrayOfValues.length; i++) {
+        if (method(arrayOfValues[i]) == true)
+            result = method(arrayOfValues[i]);
+    }
+    return result;
+}
 
 console.log(every([NaN, NaN, NaN], isNaN));
 // → true
