@@ -5,10 +5,12 @@
     <style>
         .trail {
             position: absolute;
-            height: 6px; width: 6px;
+            height: 6px;
+            width: 6px;
             border-radius: 3px;
             background: teal;
         }
+
         body {
             height: 300px;
         }
@@ -16,8 +18,24 @@
 </head>
 <body>
 
-    <script>
-        // Your code here.
-    </script>
+<script>
+    var alementsArray = [];
+    for (var i = 0; i < 20; i++) {
+        var element = document.createElement("div");
+        element.className = "trail";
+        document.body.appendChild(element);
+        alementsArray.push(element);
+    }
+    var counter = 0;
+
+    addEventListener("mousemove", function moved(event) {
+        alementsArray[counter].style.top = event.pageY + "px";
+        alementsArray[counter].style.left = event.pageX + "px";
+        counter = counter + 1;
+        if (counter == 19) {
+            counter = 0;
+        }
+    });
+</script>
 </body>
 </html>

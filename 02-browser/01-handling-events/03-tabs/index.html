@@ -5,10 +5,12 @@
     <style>
         .trail {
             position: absolute;
-            height: 6px; width: 6px;
+            height: 6px;
+            width: 6px;
             border-radius: 3px;
             background: teal;
         }
+
         body {
             height: 300px;
         }
@@ -16,17 +18,59 @@
 </head>
 <body>
 
-    <div id="wrapper">
-        <div data-tabname="one">Tab one</div>
-        <div data-tabname="two">Tab two</div>
-        <div data-tabname="three">Tab three</div>
-    </div>
+<div id="wrapper">
+    <div data-tabname="one">Tab one</div>
+    <div data-tabname="two">Tab two</div>
+    <div data-tabname="three">Tab three</div>
+</div>
 
-    <script>
-        function asTabs(node) {
-            // Your code here.
+<script>
+    function asTabs(node) {
+        var nodesArray = [];
+        for (var i = 0; i <= node.childNodes.length - 1; i++) {
+            if (node.childNodes[i].nodeType == document.ELEMENT_NODE) {
+
+                nodesArray.push(node.childNodes[i]);
+            }
         }
-        asTabs(document.querySelector("#wrapper"));
-    </script>
+
+        for (var i = 0; i <= nodesArray.length - 1; i++) {
+            var newButton = document.createElement('button');
+            var newText = document.createTextNode(nodesArray[i].getAttribute('data-tabname'));
+            newButton.appendChild(newText);
+            document.body.appendChild(newButton);
+        }
+
+        var buttonsArray = [];
+        var button = document.body.getElementsByTagName('button');
+        for (var i = 0; i <= button.length - 1; i++) {
+            buttonsArray.push(button[i]);
+        }
+
+
+        buttonsArray.forEach(function (element, i) {
+            element.addEventListener("click", function () {
+                for (var k = 0; k <= buttonsArray.length - 1; k++) {
+                    if (buttonsArray[k].getAttribute('style') == "background-color: red;") {
+                        buttonsArray[k].removeAttribute('style');
+                    }
+                }
+
+                element.setAttribute("style", "background-color: red;");
+                elements = document.getElementsByTagName('button');
+
+                if (elements[elements.length - 1].nextSibling != null) {
+                    elements[elements.length - 1].nextSibling.remove();
+                }
+                var newElement = document.createElement('div');
+                var newText = document.createTextNode(nodesArray[i].textContent);
+                newElement.appendChild(newText);
+
+                document.body.appendChild(newElement);
+            });
+        });
+    }
+    asTabs(document.querySelector("#wrapper"));
+</script>
 </body>
 </html>
