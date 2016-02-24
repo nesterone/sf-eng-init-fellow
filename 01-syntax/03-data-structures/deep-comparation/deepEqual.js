@@ -4,26 +4,38 @@
  */
 
 
-function deepEqual(object_1, object_2) {
-    var counter_1 = 0;
-    var counter_2 = 0;
+function deepEqual(object1, object2) {
+    var counter1 = 0;
+    var counter2 = 0;
 
-    if ((typeof object_1 != 'object' && object_1 == null) &&
-        (typeof object_2 != 'object' && object_2 == null))
-        return false;
-
-    if (object_1 === object_2) return true;
-
-    for (var node in object_1)
-        counter_1++;
-
-    for (var node in object_2) {
-        counter_2++;
-        if (!(node in object_1) || !deepEqual(object_1[node], object_2[node]))
-            return false;
+    if (object1 === object2) {
+        return true;
     }
 
-    return (counter_1 == counter_2);
+    function isObject(obj) {
+        if (typeof obj != 'object' || obj == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    if (!isObject(object1) || !isObject(object2))
+        return false;
+
+
+    for (var prop in object1) counter1++;
+
+    for (var prop in object2) {
+        counter2++;
+        if (!(prop in object1)
+            || !deepEqual(object1[prop], object2[prop])) {
+            return false;
+        }
+    }
+
+    return counter1 == counter2;
 
 }
 
@@ -31,27 +43,26 @@ var obj = {here: {is: "an"}, object: 2};
 
 console.log(deepEqual(obj, obj));
 // → true
-console.log(deepEqual({here: 1}, {here: 1, object: 2}));
+console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
-console.log(deepEqual(1, {here: 1, object: 2}));
-//→ false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
 
+
 console.log(deepEqual({
-        a : {
-            t : {
+        a: {
+            t: {
                 msg: "hello"
             },
             v: "sssss"
         }
-    }, {
+    },
+    {
         here: {
             is: "an"
         },
         object: 2
-    }
-));
+    }));
 //→ false
 
 console.log(deepEqual({
@@ -60,7 +71,6 @@ console.log(deepEqual({
         t: {
             msg: "hello"
         }
-
     }
 }, {
     a: {
@@ -69,21 +79,20 @@ console.log(deepEqual({
         },
         v: "sssss"
     }
-
 }));
 
 //→ false
 
 console.log(deepEqual({
-    a : {
-        t : {
+    a: {
+        t: {
             msg: "hello"
         },
         v: "sssss"
     }
 }, {
-    a : {
-        t : {
+    a: {
+        t: {
             msg: "hello"
         },
         v: "sssss"
