@@ -38,7 +38,7 @@ tools["Flood fill"] = function (event, cx) {
     function addPoints(data, i, j, side) {
         while ((colorDetermination(data, i, j + 1)) && (j < canvas.height)) {
             seachPointsLeft(data, i, j, side);
-            seachPointsRight(data, i, j, side);
+            //seachPointsRight(data, i, j, side);
             workList.x.push(i);
             workList.y.push(j);
             j++;
@@ -47,11 +47,26 @@ tools["Flood fill"] = function (event, cx) {
 
     function seachPointsLeft(data, i, j, side) {
         if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == '0')) {
+            console.log('1');
             newPointsList.x.push(i - 1);
             newPointsList.y.push(j);
-        } else if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == 'left')){
+            newPointsList.side.push('left');
+        } else if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == 'left')) {
+            console.log('2');
             newPointsList.x.push(i - 1);
             newPointsList.y.push(j);
+            newPointsList.side.push('left');
+        } else if ((colorDetermination(data, i - 1, j)) && (!(colorDetermination(data, i - 1, j - 1))) && (i > 0) && (side == 'left') || (side == '0')) {
+            console.log('3');
+            newPointsList.x.push(i - 1);
+            newPointsList.y.push(j);
+            newPointsList.side.push('left');
+        } else if (!(colorDetermination(data, i, j - 1)) && (colorDetermination(data, i - 1, j)) && (i > 0) && (j > 0) && (side == 'left') || (side == '0')) {
+            console.log('4');
+            var a = startPoint(data, i - 1, j);
+            newPointsList.x.push(a.x);
+            newPointsList.y.push(a.y);
+            newPointsList.side.push('left');
         }
     }
 
@@ -59,9 +74,20 @@ tools["Flood fill"] = function (event, cx) {
         if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == '0')) {
             newPointsList.x.push(i + 1);
             newPointsList.y.push(j);
-        }else if((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == 'right')){
+            newPointsList.side.push('right');
+        } else if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == 'right')) {
             newPointsList.x.push(i + 1);
             newPointsList.y.push(j);
+            newPointsList.side.push('right');
+        } else if ((colorDetermination(data, i + 1, j)) && (!(colorDetermination(data, i + 1, j - 1))) && (i < canvas.width) && (side == 'right') || (side == '0')) {
+            newPointsList.x.push(i + 1);
+            newPointsList.y.push(j);
+            newPointsList.side.push('right');
+        } else if (!(colorDetermination(data, i, j - 1)) && (colorDetermination(data, i + 1, j)) && (i < canvas.width) && (j > 0) && (side == 'right') || (side == '0')) {
+            var a = startPoint(data, i + 1, j);
+            newPointsList.x.push(a.x);
+            newPointsList.y.push(a.y);
+            newPointsList.side.push('right');
         }
     }
 
@@ -73,6 +99,7 @@ tools["Flood fill"] = function (event, cx) {
             newPointsList.side.splice(0, 1);
         }
     }
+
     workListCreator(data);
 
     for (var i = 0; i < workList.x.length; i++) {
