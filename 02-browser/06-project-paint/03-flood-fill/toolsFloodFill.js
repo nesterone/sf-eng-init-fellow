@@ -4,7 +4,16 @@ tools["Flood fill"] = function (event, cx) {
     var data = cx.getImageData(0, 0, canvas.width, canvas.height);
     var pos = relativePos(event, cx.canvas);
     var color = pixelAt(cx, pos.x, pos.y);
-    var pointsList = {x: [pos.x], y: [pos.y]};
+    var workList = {x: [], y: [], side: []};
+    var firstPoint = startPoint(data, pos.x, pos.y);
+    var newPointsList = {x: [firstPoint.x], y: [firstPoint.y], side: ['0']};
+
+    function startPoint(data, i, j) {
+        while ((colorDetermination(data, i, j)) && (j > 0)) {
+            j = j - 1;
+        }
+        return {x: i, y: j};
+    }
 
     function pixelAt(cx, x, y) {
         var color = {};
@@ -16,62 +25,6 @@ tools["Flood fill"] = function (event, cx) {
         return color;
     }
 
-    function neiborDetermination(data, i, j) {
-        var naiborList = {};
-        naiborList.x = [];
-        naiborList.y = [];
-
-        if (colorDetermination(data, i - 1, j)) {
-            naiborList.x.push(i - 1);
-            naiborList.y.push(j);
-        }
-        if (colorDetermination(data, i + 1, j)) {
-            naiborList.x.push(i + 1);
-            naiborList.y.push(j);
-        }
-        if (colorDetermination(data, i, j - 1)) {
-            naiborList.x.push(i);
-            naiborList.y.push(j - 1);
-        }
-        if (colorDetermination(data, i, j + 1)) {
-            naiborList.x.push(i);
-            naiborList.y.push(j + 1);
-        }
-
-        for (var k = 0; k < naiborList.x.length; k++) {
-            if (!isIn(pointsList.x, pointsList.y, naiborList.x[k], naiborList.y[k])) {
-                pointsList.x.push(naiborList.x[k]);
-                pointsList.y.push(naiborList.y[k]);
-            }
-        }
-
-    }
-
-    function isIn(arrx, arry, bx, by) {
-        var indices = [];
-        var idx = arrx.indexOf(bx);
-        while (idx != -1) {
-            indices.push(idx);
-            idx = arrx.indexOf(bx, idx + 1);
-        }
-        var counter = 0;
-        for (var i = 0; i < indices.length; i++) {
-            if ((arrx[indices[i]] == bx) && (arry[indices[i]] == by)) {
-                counter++;
-            }
-        }
-        if (counter > 0) return true;
-        else return false;
-    };
-
-
-    for (var l = 0; l < pointsList.x.length; l++) {
-        neiborDetermination(data, pointsList.x[l], pointsList.y[l]);
-    }
-
-    console.log(pointsList);
-
-
     function colorDetermination(data, i, j) {
         if ((data.data[(i + j * canvas.width) * 4] == color.red) &&
             (data.data[(i + j * canvas.width) * 4 + 1] == color.green) &&
@@ -82,9 +35,48 @@ tools["Flood fill"] = function (event, cx) {
         return false;
     }
 
+    function addPoints(data, i, j, side) {
+        while ((colorDetermination(data, i, j + 1)) && (j < canvas.height)) {
+            seachPointsLeft(data, i, j, side);
+            seachPointsRight(data, i, j, side);
+            workList.x.push(i);
+            workList.y.push(j);
+            j++;
+        }
+    }
 
-    for (var i = 0; i < pointsList.x.length; i++) {
-        cx.fillRect(pointsList.x[i], pointsList.y[i], 1, 1);
+    function seachPointsLeft(data, i, j, side) {
+        if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == '0')) {
+            newPointsList.x.push(i - 1);
+            newPointsList.y.push(j);
+        } else if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == 'left')){
+            newPointsList.x.push(i - 1);
+            newPointsList.y.push(j);
+        }
+    }
+
+    function seachPointsRight(data, i, j, side) {
+        if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == '0')) {
+            newPointsList.x.push(i + 1);
+            newPointsList.y.push(j);
+        }else if((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == 'right')){
+            newPointsList.x.push(i + 1);
+            newPointsList.y.push(j);
+        }
+    }
+
+    function workListCreator(data) {
+        while (newPointsList.x.length > 0) {
+            addPoints(data, newPointsList.x[0], newPointsList.y[0], newPointsList.side[0]);
+            newPointsList.x.splice(0, 1);
+            newPointsList.y.splice(0, 1);
+            newPointsList.side.splice(0, 1);
+        }
+    }
+    workListCreator(data);
+
+    for (var i = 0; i < workList.x.length; i++) {
+        cx.fillRect(workList.x[i], workList.y[i], 1, 1);
     }
 
 
