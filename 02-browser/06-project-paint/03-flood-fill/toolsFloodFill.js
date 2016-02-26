@@ -9,7 +9,7 @@ tools["Flood fill"] = function (event, cx) {
     var newPointsList = {x: [firstPoint.x], y: [firstPoint.y], side: ['0']};
 
     function startPoint(data, i, j) {
-        while ((colorDetermination(data, i, j)) && (j > 0)) {
+        while ((colorDetermination(data, i, j - 1)) && (j > 0)) {
             j = j - 1;
         }
         return {x: i, y: j};
@@ -37,66 +37,77 @@ tools["Flood fill"] = function (event, cx) {
 
     function addPoints(data, i, j, side) {
         while ((colorDetermination(data, i, j + 1)) && (j < canvas.height)) {
-            seachPointsLeft(data, i, j, side);
-            //seachPointsRight(data, i, j, side);
+            searchPointsLeft(data, i, j, side);
+            searchPointsRight(data, i, j, side);
             workList.x.push(i);
             workList.y.push(j);
             j++;
         }
     }
 
-    function seachPointsLeft(data, i, j, side) {
-        if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == '0')) {
-            console.log('1');
+    function searchPointsLeft(data, i, j, side) {
+        if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && ((side == '0') || (side == 'left'))) {
             newPointsList.x.push(i - 1);
             newPointsList.y.push(j);
             newPointsList.side.push('left');
-        } else if ((colorDetermination(data, i - 1, j)) && (j - 1 < 0) && (i > 0) && (side == 'left')) {
-            console.log('2');
-            newPointsList.x.push(i - 1);
-            newPointsList.y.push(j);
-            newPointsList.side.push('left');
-        } else if ((colorDetermination(data, i - 1, j)) && (!(colorDetermination(data, i - 1, j - 1))) && (i > 0) && (side == 'left') || (side == '0')) {
-            console.log('3');
-            newPointsList.x.push(i - 1);
-            newPointsList.y.push(j);
-            newPointsList.side.push('left');
-        } else if (!(colorDetermination(data, i, j - 1)) && (colorDetermination(data, i - 1, j)) && (i > 0) && (j > 0) && (side == 'left') || (side == '0')) {
-            console.log('4');
+        } else if ((colorDetermination(data, i - 1, j)) && (!(colorDetermination(data, i, j - 1))) && (j > 0) &&
+            (i > 0) && ((side == '0') || (side == 'left'))) {
             var a = startPoint(data, i - 1, j);
-            newPointsList.x.push(a.x);
-            newPointsList.y.push(a.y);
+            if ((j - a.y > 2) && ((colorDetermination(data, a.x + 1, a.y)))) {
+                newPointsList.x.push(a.x + 1);
+                newPointsList.y.push(a.y);
+                newPointsList.side.push('right');
+                newPointsList.x.push(a.x);
+                newPointsList.y.push(a.y);
+                newPointsList.side.push('left');
+            } else {
+                newPointsList.x.push(a.x);
+                newPointsList.y.push(a.y);
+                newPointsList.side.push('left');
+            }
+        } else if ((colorDetermination(data, i - 1, j)) && (!(colorDetermination(data, i - 1, j - 1))) && (colorDetermination(data, i, j - 1)) &&
+            (i > 0) && ((side == 'left') || (side == '0'))) {
+            newPointsList.x.push(i - 1);
+            newPointsList.y.push(j);
+            newPointsList.side.push('left');
+        } else if ((colorDetermination(data, i - 1, j)) && (!(colorDetermination(data, i, j - 1))) && (!(colorDetermination(data, i - 1, j - 1))) &&
+            (i > 0) && ((side == 'left') || (side == '0'))) {
+            newPointsList.x.push(i - 1);
+            newPointsList.y.push(j);
             newPointsList.side.push('left');
         }
     }
 
-    function seachPointsRight(data, i, j, side) {
-        if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == '0')) {
+    function searchPointsRight(data, i, j, side) {
+        if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && ((side == '0') || (side == 'right'))) {
             newPointsList.x.push(i + 1);
             newPointsList.y.push(j);
             newPointsList.side.push('right');
-        } else if ((colorDetermination(data, i + 1, j)) && (j - 1 < 0) && (i < canvas.width) && (side == 'right')) {
-            newPointsList.x.push(i + 1);
-            newPointsList.y.push(j);
-            newPointsList.side.push('right');
-        } else if ((colorDetermination(data, i + 1, j)) && (!(colorDetermination(data, i + 1, j - 1))) && (i < canvas.width) && (side == 'right') || (side == '0')) {
-            newPointsList.x.push(i + 1);
-            newPointsList.y.push(j);
-            newPointsList.side.push('right');
-        } else if (!(colorDetermination(data, i, j - 1)) && (colorDetermination(data, i + 1, j)) && (i < canvas.width) && (j > 0) && (side == 'right') || (side == '0')) {
+        } else if ((colorDetermination(data, i + 1, j)) && (!(colorDetermination(data, i, j - 1))) && (j > 0) &&
+            (i < canvas.width) && ((side == '0') || (side == 'right'))) {
             var a = startPoint(data, i + 1, j);
             newPointsList.x.push(a.x);
             newPointsList.y.push(a.y);
+            newPointsList.side.push('right');
+        } else if ((colorDetermination(data, i + 1, j)) && (!(colorDetermination(data, i + 1, j - 1))) && (colorDetermination(data, i, j - 1)) &&
+            (i < canvas.width) && ((side == 'right') || (side == '0'))) {
+            newPointsList.x.push(i + 1);
+            newPointsList.y.push(j);
+            newPointsList.side.push('right');
+        }  else if ((colorDetermination(data, i + 1, j)) && (!(colorDetermination(data, i, j - 1))) && (!(colorDetermination(data, i + 1, j - 1))) &&
+            (i < canvas.width) && ((side == 'right') || (side == '0'))) {
+            newPointsList.x.push(i + 1);
+            newPointsList.y.push(j);
             newPointsList.side.push('right');
         }
     }
 
     function workListCreator(data) {
         while (newPointsList.x.length > 0) {
-            addPoints(data, newPointsList.x[0], newPointsList.y[0], newPointsList.side[0]);
-            newPointsList.x.splice(0, 1);
-            newPointsList.y.splice(0, 1);
-            newPointsList.side.splice(0, 1);
+            var cX = newPointsList.x.splice(0, 1);
+            var cY = newPointsList.y.splice(0, 1);
+            var cSide = newPointsList.side.splice(0, 1);
+            addPoints(data, cX[0], cY[0], cSide[0]);
         }
     }
 
@@ -105,6 +116,5 @@ tools["Flood fill"] = function (event, cx) {
     for (var i = 0; i < workList.x.length; i++) {
         cx.fillRect(workList.x[i], workList.y[i], 1, 1);
     }
-
 
 };
