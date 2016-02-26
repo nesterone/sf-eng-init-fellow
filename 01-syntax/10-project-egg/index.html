@@ -12,6 +12,7 @@
             ),
             print(plusOne(10))
         )
+
     </script>
     <!--Result: 11 -->
 
@@ -30,18 +31,44 @@
             ),
             print(pow(2, 10))
         )
+
     </script>
     <!--Result: 1024 -->
 
+    <script type="text/egg">
+   do(define(sum, fun(array,
+         do(define(i, 0),
+            define(sum, 0),
+            while(<(i, length(array)),
+              do(define(sum, +(sum, element(array, i))),
+                 define(i, +(i, 1)))),
+            sum))),
+       print(sum(array(1, 2, 3)))
+   )
 
-</head>
-<body>
+    </script>
+    <!--Result: 6 -->
+
+    <script type="text/egg">
+      do(define(x, 4),
+         define(setx, fun(val, set(x, val))),
+         setx(50),
+         print(x)
+      )
+      set(quux, true)
+    </script>
+    <!--Result: 50 -->
+    <!--Result: Some kind of ReferenceError -->
+
 
     <script src="egg.js"></script>
     <script src="egg-arrays.js"></script>
     <script src="egg-comments.js"></script>
     <script src="eggTags.js"></script>
     <script src="egg-scope.js"></script>
+</head>
+<body>
+
 
 </body>
 </html>
