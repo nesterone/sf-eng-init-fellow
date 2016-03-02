@@ -38,12 +38,12 @@ function fieldCreator(sizeX, sizeY) {
 
 function highLiting() {
     document.body.addEventListener("mouseover", function (event) {
-        if ((event.target.nodeName == "BUTTON")&&(event.target.getAttribute('class')!='marked')) {
+        if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.setAttribute('class', 'new');
         }
     });
     document.body.addEventListener("mouseout", function (event) {
-        if ((event.target.nodeName == "BUTTON")&&(event.target.getAttribute('class')!='marked')) {
+        if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.setAttribute('class', 'initial');
         }
     });
@@ -51,7 +51,7 @@ function highLiting() {
 
 function cellContent() {
     document.body.addEventListener("click", function (event) {
-        if (event.target.nodeName == "BUTTON") {
+        if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.remove();
             var currentCell = document.querySelectorAll('td');
             for (var i = 0; i < currentCell.length; i++) {
@@ -67,20 +67,22 @@ function cellContent() {
 
 function minesMarker() {
     document.body.addEventListener("mousedown", function (event) {
-        if ((event.target.nodeName == "BUTTON")&& (event.which == 3)&&(event.target.getAttribute('class')!='marked')) {
+        if ((event.target.nodeName == "BUTTON") && (event.which == 3) && (event.target.getAttribute('class') != 'marked')) {
             event.target.setAttribute('class', 'marked');
             minesList.push(event.target.id);
-        } else if ((event.target.nodeName == "BUTTON")&& (event.which == 3)&&(event.target.getAttribute('class')=='marked')) {
+        } else if ((event.target.nodeName == "BUTTON") && (event.which == 3) && (event.target.getAttribute('class') == 'marked')) {
             event.target.setAttribute('class', 'initial');
             var position = minesList.indexOf(event.target.id);
-            minesList.splice(position,1);
+            minesList.splice(position, 1);
         }
     });
 }
 
 function sizeMenu() {
+
     var menuNode = document.createElement('div');
     document.body.appendChild(menuNode);
+
     var selectNode = document.createElement('th');
     var selectName = document.createTextNode('Choose filed size:');
     selectNode.appendChild(selectName);
@@ -96,8 +98,14 @@ function sizeMenu() {
     timeCountNode.appendChild(timeCountNodeName);
     menuNode.appendChild(timeCountNode);
 
-    var divElement =document.querySelector('div');
-    divElement.setAttribute('class','center');
+    //var minesCounterNode = document.createElement('div');
+    //var minesCount = document.createTextNode('0');
+    //minesCounterNode.appendChild(minesCount);
+    //document.appendChild(minesCounterNode);
+    //minesCountNode.textContent = 1;
+
+    var divElement = document.querySelector('div');
+    divElement.setAttribute('class', 'center');
 
     var sizeNode = document.createElement('select');
     for (var i = 0; i < 3; i++) {
@@ -165,8 +173,6 @@ function mineGenerator(sizeX, sizeY) {
     }
     return cellsArray;
 }
-
-
 
 
 highLiting();
