@@ -1,6 +1,16 @@
 /**
  * Created by Iaroslav Zhbankov on 02.03.2016.
  */
+
+var sizeX = 9;
+var sizeY = 9;
+var cellContentList = [];
+var minesList = [];
+
+document.oncontextmenu = cmenu;
+function cmenu() {
+    return false;
+}
 function fieldCreator(sizeX, sizeY) {
     cellContentList = mineGenerator(sizeX, sizeY);
     var tableNode = document.createElement('table');
@@ -28,12 +38,12 @@ function fieldCreator(sizeX, sizeY) {
 
 function highLiting() {
     document.body.addEventListener("mouseover", function (event) {
-        if (event.target.nodeName == "BUTTON") {
+        if ((event.target.nodeName == "BUTTON")&&(event.target.getAttribute('class')!='marked')) {
             event.target.setAttribute('class', 'new');
         }
     });
     document.body.addEventListener("mouseout", function (event) {
-        if (event.target.nodeName == "BUTTON") {
+        if ((event.target.nodeName == "BUTTON")&&(event.target.getAttribute('class')!='marked')) {
             event.target.setAttribute('class', 'initial');
         }
     });
@@ -55,11 +65,39 @@ function cellContent() {
 
 }
 
+function minesMarker() {
+    document.body.addEventListener("mousedown", function (event) {
+        if ((event.target.nodeName == "BUTTON")&& (event.which == 3)&&(event.target.getAttribute('class')!='marked')) {
+            event.target.setAttribute('class', 'marked');
+            minesList.push(event.target.id);
+        } else if ((event.target.nodeName == "BUTTON")&& (event.which == 3)&&(event.target.getAttribute('class')=='marked')) {
+            event.target.setAttribute('class', 'initial');
+            var position = minesList.indexOf(event.target.id);
+            minesList.splice(position,1);
+        }
+    });
+}
+
 function sizeMenu() {
-    var selectNode = document.createElement('div');
+    var menuNode = document.createElement('div');
+    document.body.appendChild(menuNode);
+    var selectNode = document.createElement('th');
     var selectName = document.createTextNode('Choose filed size:');
     selectNode.appendChild(selectName);
-    document.body.appendChild(selectNode);
+    menuNode.appendChild(selectNode);
+
+    var minesCountNode = document.createElement('th');
+    var minesCountNodeName = document.createTextNode('Mines number:');
+    minesCountNode.appendChild(minesCountNodeName);
+    menuNode.appendChild(minesCountNode);
+
+    var timeCountNode = document.createElement('th');
+    var timeCountNodeName = document.createTextNode('Time:');
+    timeCountNode.appendChild(timeCountNodeName);
+    menuNode.appendChild(timeCountNode);
+
+    var divElement =document.querySelector('div');
+    divElement.setAttribute('class','center');
 
     var sizeNode = document.createElement('select');
     for (var i = 0; i < 3; i++) {
@@ -76,7 +114,6 @@ function sizeMenu() {
         menu.appendChild(menuText);
         sizeNode.appendChild(menu);
     }
-
     document.body.appendChild(sizeNode);
     var select = document.querySelector("select");
     select.addEventListener("change", function () {
@@ -123,17 +160,17 @@ function mineGenerator(sizeX, sizeY) {
         var rand = Math.floor(Math.random() * (cellsArray.length + 1));
         if (cellsArray[rand] != 'buh') {
             cellsArray[rand] = 'buh';
-            minesNumber--;}
+            minesNumber--;
+        }
     }
     return cellsArray;
 }
 
 
-var sizeX = 9;
-var sizeY = 9;
-var cellContentList = [];
+
 
 highLiting();
 cellContent();
+minesMarker();
 sizeMenu();
 fieldCreator(sizeX, sizeY);
