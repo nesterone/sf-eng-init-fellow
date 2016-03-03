@@ -70,16 +70,20 @@ function minesMarker() {
         if ((event.target.nodeName == "BUTTON") && (event.which == 3) && (event.target.getAttribute('class') != 'marked')) {
             event.target.setAttribute('class', 'marked');
             minesList.push(event.target.id);
+            var divElement = document.querySelectorAll('div');
+            divElement[2].textContent = minesList.length;
         } else if ((event.target.nodeName == "BUTTON") && (event.which == 3) && (event.target.getAttribute('class') == 'marked')) {
             event.target.setAttribute('class', 'initial');
             var position = minesList.indexOf(event.target.id);
             minesList.splice(position, 1);
+            var divElement = document.querySelectorAll('div');
+            divElement[2].textContent = minesList.length;
         }
     });
 }
 
 function sizeMenu() {
-
+// create menu text
     var menuNode = document.createElement('div');
     document.body.appendChild(menuNode);
 
@@ -98,14 +102,8 @@ function sizeMenu() {
     timeCountNode.appendChild(timeCountNodeName);
     menuNode.appendChild(timeCountNode);
 
-    //var minesCounterNode = document.createElement('div');
-    //var minesCount = document.createTextNode('0');
-    //minesCounterNode.appendChild(minesCount);
-    //document.appendChild(minesCounterNode);
-    //minesCountNode.textContent = 1;
-
-    var divElement = document.querySelector('div');
-    divElement.setAttribute('class', 'center');
+// create menu content
+    var selectNodeDiv = document.createElement('div');
 
     var sizeNode = document.createElement('select');
     for (var i = 0; i < 3; i++) {
@@ -122,8 +120,21 @@ function sizeMenu() {
         menu.appendChild(menuText);
         sizeNode.appendChild(menu);
     }
-    document.body.appendChild(sizeNode);
+    selectNodeDiv.appendChild(sizeNode);
+
+    var minesCounterNode = document.createElement('div');
+    minesCounterNode.textContent = minesList.length;
+    selectNodeDiv.appendChild(minesCounterNode);
+    document.body.appendChild(selectNodeDiv);
+
+    var divElement = document.querySelectorAll('div');
+    divElement[0].setAttribute('class', 'center');
+    divElement[1].setAttribute('class', 'center');
+    divElement[2].setAttribute('style', 'margin: -20px 0 0 235px;');
+
+// create select event
     var select = document.querySelector("select");
+    select.setAttribute('style', 'margin: 30px 0 0 75px;');
     select.addEventListener("change", function () {
             for (var i = 0; i < select.options.length; i++) {
                 var table = document.querySelector('table');
