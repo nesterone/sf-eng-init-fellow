@@ -87,7 +87,6 @@ function minesMarker() {
 }
 
 function timeCounter() {
-
     var divElement = document.querySelectorAll('div');
     var clock = setInterval(function () {
         if (isGameStart > 0) {
@@ -97,7 +96,6 @@ function timeCounter() {
             clearInterval(clock);
         }
     }, 1000);
-
 }
 
 function sizeMenu() {
@@ -165,43 +163,30 @@ function sizeMenu() {
                     if (option.value == '9x9') {
                         sizeX = 9;
                         sizeY = 9;
-                        table.remove();
-                        isGameStart = 0;
-                        minesList = [];
-                        ticks = 0;
-                        var divElement = document.querySelectorAll('div');
-                        divElement[2].textContent = 0;
-                        divElement[3].textContent = 0;
-                        fieldCreator(sizeX, sizeY);
+                        initialValues(table, sizeX, sizeY)
                     } else if (option.value == '16x16') {
                         sizeX = 16;
                         sizeY = 16;
-                        table.remove();
-                        isGameStart = 0;
-                        minesList = [];
-                        ticks = 0;
-                        var divElement = document.querySelectorAll('div');
-                        divElement[2].textContent = 0;
-                        divElement[3].textContent = 0;
-                        fieldCreator(sizeX, sizeY);
+                        initialValues(table, sizeX, sizeY)
                     } else if (option.value == '30x16') {
                         sizeX = 30;
                         sizeY = 16;
-                        table.remove();
-                        isGameStart = 0;
-                        minesList = [];
-                        ticks = 0;
-                        var divElement = document.querySelectorAll('div');
-                        divElement[2].textContent = 0;
-                        divElement[3].textContent = 0;
-                        fieldCreator(sizeX, sizeY);
+                        initialValues(table, sizeX, sizeY)
                     }
                 }
-
             }
-
         }
     );
+}
+function initialValues(table, sizeX, sizeY) {
+    table.remove();
+    isGameStart = 0;
+    minesList = [];
+    ticks = 0;
+    var divElement = document.querySelectorAll('div');
+    divElement[2].textContent = 0;
+    divElement[3].textContent = 0;
+    fieldCreator(sizeX, sizeY);
 }
 
 function mineGenerator(sizeX, sizeY) {
@@ -222,9 +207,56 @@ function mineGenerator(sizeX, sizeY) {
             minesNumber--;
         }
     }
+    findNaibour(cellsArray, sizeX, sizeY);
+
     return cellsArray;
 }
 
+
+console.log(mineGenerator(9, 9));
+
+function findNaibour(array, sizeX, sizeY) {
+
+    for (var i = 0; i < sizeX; i++) {
+        for (var j = 0; j < sizeY; j++) {
+            var mineNumber = 0;
+            if (array[i + j * sizeX] != 'buh') {
+                if ((array[i + j * sizeX + 1] == 'buh') && (i < sizeX)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX - 1] == 'buh') && (i > 0)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX + sizeX] == 'buh') && (j < sizeY)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX - sizeX] == 'buh') && (j > 0)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX - sizeX + 1] == 'buh') && (j > 0) && (i < sizeX)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX - sizeX - 1] == 'buh') && (j > 0) && (i > 0)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX + sizeX + 1] == 'buh') && (j < sizeY) && (i < sizeX)) {
+                    mineNumber++;
+                }
+                if ((array[i + j * sizeX + sizeX - 1] == 'buh') && (j < sizeY) && (i > 0)) {
+                    mineNumber++;
+                }
+                if (mineNumber > 0) {
+                    array[i + j * sizeX] = mineNumber;
+                } else {
+                    array[i + j * sizeX] = '';
+                }
+            }
+
+        }
+
+    }
+    return array;
+}
 
 highLiting();
 cellContent();
