@@ -6,6 +6,8 @@ var sizeX = 9;
 var sizeY = 9;
 var cellContentList = [];
 var minesList = [];
+var ticks = 0;
+var isGameStart = 0;
 
 document.oncontextmenu = cmenu;
 function cmenu() {
@@ -53,6 +55,10 @@ function cellContent() {
     document.body.addEventListener("click", function (event) {
         if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.remove();
+            isGameStart++;
+            if ((isGameStart == 1)) {
+                timeCounter();
+            }
             var currentCell = document.querySelectorAll('td');
             for (var i = 0; i < currentCell.length; i++) {
                 if (currentCell[i].id == event.target.id) {
@@ -60,9 +66,7 @@ function cellContent() {
                 }
             }
         }
-
     });
-
 }
 
 function minesMarker() {
@@ -80,6 +84,20 @@ function minesMarker() {
             divElement[2].textContent = minesList.length;
         }
     });
+}
+
+function timeCounter() {
+
+    var divElement = document.querySelectorAll('div');
+    var clock = setInterval(function () {
+        if (isGameStart > 0) {
+            ticks++;
+            divElement[3].textContent = ticks;
+        } else if (isGameStart == 0) {
+            clearInterval(clock);
+        }
+    }, 1000);
+
 }
 
 function sizeMenu() {
@@ -123,14 +141,18 @@ function sizeMenu() {
     selectNodeDiv.appendChild(sizeNode);
 
     var minesCounterNode = document.createElement('div');
+    var timeCounterNode = document.createElement('div');
     minesCounterNode.textContent = minesList.length;
+    timeCounterNode.textContent = 0;
     selectNodeDiv.appendChild(minesCounterNode);
+    selectNodeDiv.appendChild(timeCounterNode);
     document.body.appendChild(selectNodeDiv);
 
     var divElement = document.querySelectorAll('div');
     divElement[0].setAttribute('class', 'center');
     divElement[1].setAttribute('class', 'center');
     divElement[2].setAttribute('style', 'margin: -20px 0 0 235px;');
+    divElement[3].setAttribute('style', 'margin: -20px 0 0 395px;');
 
 // create select event
     var select = document.querySelector("select");
@@ -144,16 +166,34 @@ function sizeMenu() {
                         sizeX = 9;
                         sizeY = 9;
                         table.remove();
+                        isGameStart = 0;
+                        minesList = [];
+                        ticks = 0;
+                        var divElement = document.querySelectorAll('div');
+                        divElement[2].textContent = 0;
+                        divElement[3].textContent = 0;
                         fieldCreator(sizeX, sizeY);
                     } else if (option.value == '16x16') {
                         sizeX = 16;
                         sizeY = 16;
                         table.remove();
+                        isGameStart = 0;
+                        minesList = [];
+                        ticks = 0;
+                        var divElement = document.querySelectorAll('div');
+                        divElement[2].textContent = 0;
+                        divElement[3].textContent = 0;
                         fieldCreator(sizeX, sizeY);
                     } else if (option.value == '30x16') {
                         sizeX = 30;
                         sizeY = 16;
                         table.remove();
+                        isGameStart = 0;
+                        minesList = [];
+                        ticks = 0;
+                        var divElement = document.querySelectorAll('div');
+                        divElement[2].textContent = 0;
+                        divElement[3].textContent = 0;
                         fieldCreator(sizeX, sizeY);
                     }
                 }
