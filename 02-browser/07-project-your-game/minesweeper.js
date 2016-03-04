@@ -53,7 +53,9 @@ function highLiting() {
 }
 
 function cellContent() {
+
     document.body.addEventListener("click", function (event) {
+
         if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.remove();
             isGameStart++;
@@ -61,14 +63,75 @@ function cellContent() {
                 timeCounter();
             }
             var currentCell = document.querySelectorAll('td');
+            var currentButton = document.querySelectorAll('button');
             for (var i = 0; i < currentCell.length; i++) {
                 if (currentCell[i].id == event.target.id) {
                     currentCell[i].textContent = cellContentList[event.target.id];
                 }
             }
+
+            /*if (cellContentList[event.target.id]==''){
+                var emptyOpenCell = emptyCell(event, cellContentList);
+                for (var i = 0; i < currentCell.length; i++) {
+                    if (emptyOpenCell.indexOf(Number(currentCell[i].id)) >= 0) {
+                        currentButton[i].remove();
+                    }
+                }
+            }*/
         }
     });
 }
+
+
+function emptyCell(event, data) {
+    var currentId = Number(event.target.id);
+    var workArray = new Array(sizeX * sizeY);
+    var cellList = [];
+    cellList.push(currentId);
+    function neiborDetermination(event, data, i) {
+
+        var naiborList = [];
+
+        if ((data[i-1] == '')) {
+            naiborList.push(i-1);
+        }
+        if (data[i+1] == '') {
+            naiborList.push(i++);
+        }
+        if (data[i - sizeX] == '') {
+            naiborList.push(i - sizeX);
+        }
+        if (data[i - sizeX + 1] == '') {
+            naiborList.push(i - sizeX + 1);
+        }
+        if (data[i - sizeX - 1] == '') {
+            naiborList.push(i - sizeX - 1);
+        }
+        if (data[i + sizeX] == '') {
+            naiborList.push(i + sizeX);
+        }
+        if (data[i + sizeX + 1] == '') {
+            naiborList.push(i + sizeX + 1);
+        }
+        if (data[i + sizeX - 1] == '') {
+            naiborList.push(i + sizeX - 1);
+        }
+        console.log(naiborList);
+
+        for (var i = 0; i < naiborList.length; i++) {
+            if (workArray[naiborList[i]] != true) {
+                cellList.push(naiborList[i]);
+                workArray[naiborList[i]] = true;
+            }
+        }
+    }
+
+    for (var ii = 0; ii < cellList.length; ii++) {
+        neiborDetermination(event, data, cellList[ii]);
+    }
+return cellList;
+}
+
 
 function minesMarker() {
     document.body.addEventListener("mousedown", function (event) {
