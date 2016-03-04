@@ -13,6 +13,7 @@ document.oncontextmenu = cmenu;
 function cmenu() {
     return false;
 }
+
 function fieldCreator(sizeX, sizeY) {
     cellContentList = mineGenerator(sizeX, sizeY);
     var tableNode = document.createElement('table');
@@ -208,41 +209,36 @@ function mineGenerator(sizeX, sizeY) {
         }
     }
     findNaibour(cellsArray, sizeX, sizeY);
-
     return cellsArray;
 }
 
-
-console.log(mineGenerator(9, 9));
-
 function findNaibour(array, sizeX, sizeY) {
-
-    for (var i = 0; i < sizeX; i++) {
-        for (var j = 0; j < sizeY; j++) {
+    for (var j = 0; j < sizeY; j++) {
+        for (var i = 0; i < sizeX; i++) {
             var mineNumber = 0;
             if (array[i + j * sizeX] != 'buh') {
-                if ((array[i + j * sizeX + 1] == 'buh') && (i < sizeX)) {
+                if ((array[i + j * sizeX + 1] == 'buh') && (i < sizeX) - 1) {
                     mineNumber++;
                 }
                 if ((array[i + j * sizeX - 1] == 'buh') && (i > 0)) {
                     mineNumber++;
                 }
-                if ((array[i + j * sizeX + sizeX] == 'buh') && (j < sizeY)) {
+                if ((array[i + j * sizeX + sizeX] == 'buh') && (j < sizeY - 1)) {
                     mineNumber++;
                 }
                 if ((array[i + j * sizeX - sizeX] == 'buh') && (j > 0)) {
                     mineNumber++;
                 }
-                if ((array[i + j * sizeX - sizeX + 1] == 'buh') && (j > 0) && (i < sizeX)) {
+                if ((array[i + j * sizeX - sizeX + 1] == 'buh') && (j > 0) && (i < sizeX - 1)) {
                     mineNumber++;
                 }
                 if ((array[i + j * sizeX - sizeX - 1] == 'buh') && (j > 0) && (i > 0)) {
                     mineNumber++;
                 }
-                if ((array[i + j * sizeX + sizeX + 1] == 'buh') && (j < sizeY) && (i < sizeX)) {
+                if ((array[i + j * sizeX + sizeX + 1] == 'buh') && (j < sizeY - 1) && (i < sizeX - 1)) {
                     mineNumber++;
                 }
-                if ((array[i + j * sizeX + sizeX - 1] == 'buh') && (j < sizeY) && (i > 0)) {
+                if ((array[i + j * sizeX + sizeX - 1] == 'buh') && (j < sizeY - 1) && (i > 0)) {
                     mineNumber++;
                 }
                 if (mineNumber > 0) {
@@ -251,9 +247,7 @@ function findNaibour(array, sizeX, sizeY) {
                     array[i + j * sizeX] = '';
                 }
             }
-
         }
-
     }
     return array;
 }
