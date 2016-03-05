@@ -5,6 +5,7 @@ var minesList = [];
 var ticks = 0;
 var isGameStart = 0;
 var isGameEnd = 0;
+var minesNumber = 0;
 
 document.oncontextmenu = cmenu;
 function cmenu() {
@@ -59,13 +60,11 @@ function cellContent() {
                 isGameStart++;
             } else {
                 isGameEnd++;
-            }
-            if ((isGameStart == 1) || (isGameEnd == 1)) {
-                timeCounter();
+                alert('You are loose!');
             }
 
+
             var currentCell = document.querySelectorAll('td');
-            var currentButton = document.querySelectorAll('button');
             for (var i = 0; i < currentCell.length; i++) {
                 if (currentCell[i].id == event.target.id) {
                     currentCell[i].textContent = cellContentList[event.target.id];
@@ -80,6 +79,17 @@ function cellContent() {
                         currentCell[i].textContent = cellContentList[i];
                     }
                 }
+            }
+            var currentButton = document.querySelectorAll('button');
+            if (((sizeX * sizeY == 9 * 9) && (currentButton.length == 10)) ||
+                ((sizeX * sizeY == 16 * 16) && (currentButton.length == 40)) ||
+                ((sizeX * sizeY == 30 * 16) && (currentButton.length == 99))) {
+                isGameEnd++;
+                alert('You win!!!');
+            }
+
+            if ((isGameStart == 1) || (isGameEnd == 1)) {
+                timeCounter();
             }
         }
     });
@@ -265,7 +275,6 @@ function initialValues(table, sizeX, sizeY) {
 
 function mineGenerator(sizeX, sizeY) {
     var cellsArray = new Array(sizeX * sizeY);
-    var minesNumber = 0;
     if (cellsArray.length == 9 * 9) {
         minesNumber = 10;
     } else if (cellsArray.length == 16 * 16) {
