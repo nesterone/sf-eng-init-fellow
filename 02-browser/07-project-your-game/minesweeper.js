@@ -1,13 +1,10 @@
-/**
- * Created by Iaroslav Zhbankov on 02.03.2016.
- */
-
 var sizeX = 9;
 var sizeY = 9;
 var cellContentList = [];
 var minesList = [];
 var ticks = 0;
 var isGameStart = 0;
+var isGameEnd = 0;
 
 document.oncontextmenu = cmenu;
 function cmenu() {
@@ -58,10 +55,15 @@ function cellContent() {
 
         if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
             event.target.remove();
-            isGameStart++;
-            if ((isGameStart == 1)) {
+            if (cellContentList[event.target.id] != 'buh') {
+                isGameStart++;
+            } else {
+                isGameEnd++;
+            }
+            if ((isGameStart == 1) || (isGameEnd == 1)) {
                 timeCounter();
             }
+
             var currentCell = document.querySelectorAll('td');
             var currentButton = document.querySelectorAll('button');
             for (var i = 0; i < currentCell.length; i++) {
@@ -70,14 +72,15 @@ function cellContent() {
                 }
             }
 
-            /*if (cellContentList[event.target.id]==''){
+
+            if (cellContentList[event.target.id] == '') {
                 var emptyOpenCell = emptyCell(event, cellContentList);
                 for (var i = 0; i < currentCell.length; i++) {
                     if (emptyOpenCell.indexOf(Number(currentCell[i].id)) >= 0) {
-                        currentButton[i].remove();
+                        currentCell[i].textContent = cellContentList[i];
                     }
                 }
-            }*/
+            }
         }
     });
 }
@@ -88,48 +91,54 @@ function emptyCell(event, data) {
     var workArray = new Array(sizeX * sizeY);
     var cellList = [];
     cellList.push(currentId);
-    function neiborDetermination(event, data, i) {
+    workArray[currentId] = true;
+
+    function neiborDetermination(event, data, cellId) {
+
+        var j = Math.floor(cellId / sizeX);
+
+        var i = cellId - j * sizeX;
 
         var naiborList = [];
 
-        if ((data[i-1] == '')) {
-            naiborList.push(i-1);
+        if ((data[i + j * sizeX - 1] == '') && (i > 0)) {
+            naiborList.push(i + j * sizeX - 1);
         }
-        if (data[i+1] == '') {
-            naiborList.push(i++);
+        if ((data[i + j * sizeX + 1] == '') && (i < sizeX - 1)) {
+            naiborList.push(i + j * sizeX + 1);
         }
-        if (data[i - sizeX] == '') {
-            naiborList.push(i - sizeX);
+        if ((data[i + j * sizeX - sizeX] == '') && (j > 0)) {
+            naiborList.push(i + j * sizeX - sizeX);
         }
-        if (data[i - sizeX + 1] == '') {
-            naiborList.push(i - sizeX + 1);
+        if ((data[i + j * sizeX - sizeX + 1] == '') && (j > 0) && (i < sizeX - 1)) {
+            naiborList.push(i + j * sizeX - sizeX + 1);
         }
-        if (data[i - sizeX - 1] == '') {
-            naiborList.push(i - sizeX - 1);
+        if ((data[i + j * sizeX - sizeX - 1] == '') && (j > 0) && (i > 0)) {
+            naiborList.push(i + j * sizeX - sizeX - 1);
         }
-        if (data[i + sizeX] == '') {
-            naiborList.push(i + sizeX);
+        if ((data[i + j * sizeX + sizeX] == '') && (j < sizeY - 1)) {
+            naiborList.push(i + j * sizeX + sizeX);
         }
-        if (data[i + sizeX + 1] == '') {
-            naiborList.push(i + sizeX + 1);
+        if ((data[i + j * sizeX + sizeX + 1] == '') && (j < sizeY - 1) && (i < sizeX - 1)) {
+            naiborList.push(i + j * sizeX + sizeX + 1);
         }
-        if (data[i + sizeX - 1] == '') {
-            naiborList.push(i + sizeX - 1);
+        if ((data[i + j * sizeX + sizeX - 1] == '') && (j < sizeY - 1) && (i > 0)) {
+            naiborList.push(i + j * sizeX + sizeX - 1);
         }
-        console.log(naiborList);
 
-        for (var i = 0; i < naiborList.length; i++) {
-            if (workArray[naiborList[i]] != true) {
-                cellList.push(naiborList[i]);
-                workArray[naiborList[i]] = true;
+        for (var l = 0; l < naiborList.length; l++) {
+            if (workArray[naiborList[l]] != true) {
+                cellList.push(naiborList[l]);
+                workArray[naiborList[l]] = true;
             }
         }
     }
 
-    for (var ii = 0; ii < cellList.length; ii++) {
-        neiborDetermination(event, data, cellList[ii]);
+    for (var m = 0; m < cellList.length; m++) {
+        neiborDetermination(event, data, cellList[m]);
     }
-return cellList;
+
+    return cellList;
 }
 
 
@@ -153,7 +162,7 @@ function minesMarker() {
 function timeCounter() {
     var divElement = document.querySelectorAll('div');
     var clock = setInterval(function () {
-        if (isGameStart > 0) {
+        if ((isGameStart > 0) && (isGameEnd == 0)) {
             ticks++;
             divElement[3].textContent = ticks;
         } else if (isGameStart == 0) {
@@ -242,6 +251,7 @@ function sizeMenu() {
         }
     );
 }
+
 function initialValues(table, sizeX, sizeY) {
     table.remove();
     isGameStart = 0;
@@ -266,11 +276,12 @@ function mineGenerator(sizeX, sizeY) {
     }
     while (minesNumber > 0) {
         var rand = Math.floor(Math.random() * (cellsArray.length + 1));
-        if (cellsArray[rand] != 'buh') {
+        if ((cellsArray[rand] != 'buh') && (rand <= cellsArray.length)) {
             cellsArray[rand] = 'buh';
             minesNumber--;
         }
     }
+
     findNaibour(cellsArray, sizeX, sizeY);
     return cellsArray;
 }
@@ -280,7 +291,7 @@ function findNaibour(array, sizeX, sizeY) {
         for (var i = 0; i < sizeX; i++) {
             var mineNumber = 0;
             if (array[i + j * sizeX] != 'buh') {
-                if ((array[i + j * sizeX + 1] == 'buh') && (i < sizeX) - 1) {
+                if ((array[i + j * sizeX + 1] == 'buh') && (i < sizeX - 1)) {
                     mineNumber++;
                 }
                 if ((array[i + j * sizeX - 1] == 'buh') && (i > 0)) {
