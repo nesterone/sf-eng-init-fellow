@@ -16,12 +16,3 @@ specialForms["set"] = function (args, env) {
     }
     throw new ReferenceError("Setting undefined variable " + valueName);
 };
-
-
-run("do(define(x, 4),",
-    "   define(setx, fun(val, set(x, val))),",
-    "   setx(50),",
-    "   print(x))");
-// ? 50
-run("set(quux, true)");
-// ? Some kind of ReferenceError
