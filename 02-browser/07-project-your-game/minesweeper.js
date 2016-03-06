@@ -1,3 +1,5 @@
+(function () {
+
 var sizeX = 9;
 var sizeY = 9;
 var cellContentList = [];
@@ -340,3 +342,5 @@ cellContent();
 minesMarker();
 sizeMenu();
 fieldCreator(sizeX, sizeY);
+
+}());
