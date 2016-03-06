@@ -69,7 +69,8 @@
                     var currentCell = document.querySelectorAll('td');
                     for (var i = 0; i < currentCell.length; i++) {
                         if (cellContentList[i] == 'buh') {
-                            currentCell[i].textContent = cellContentList[i];
+                            currentCell[i].textContent = '';
+                            currentCell[i].setAttribute('class', 'mine');
                         }
                     }
 
@@ -78,8 +79,11 @@
 
                 var currentCell = document.querySelectorAll('td');
                 for (var i = 0; i < currentCell.length; i++) {
-                    if (currentCell[i].id == event.target.id) {
+                    if ((currentCell[i].id == event.target.id) && (currentCell[i].textContent != 'buh')) {
                         currentCell[i].textContent = cellContentList[event.target.id];
+                    } else if ((currentCell[i].id == event.target.id) && (currentCell[i].textContent == 'buh')) {
+                        currentCell[i].textContent = '';
+                        currentCell[i].setAttribute('class', 'mine');
                     }
                 }
 
