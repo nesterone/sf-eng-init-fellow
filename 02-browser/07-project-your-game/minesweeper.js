@@ -41,12 +41,12 @@
 
     function highLiting() {
         document.body.addEventListener("mouseover", function (event) {
-            if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
+            if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')&&(event.target.getAttribute('class') != 'newGame')) {
                 event.target.setAttribute('class', 'new');
             }
         });
         document.body.addEventListener("mouseout", function (event) {
-            if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
+            if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')&&(event.target.getAttribute('class') != 'newGame')) {
                 event.target.setAttribute('class', 'initial');
             }
         });
@@ -270,6 +270,28 @@
                 }
             }
         );
+
+        var newGameButton = document.createElement('input');
+        newGameButton.setAttribute('type', 'button');
+        newGameButton.setAttribute('class', 'newGame');
+        newGameButton.setAttribute('value', 'New Game');
+        document.body.appendChild(newGameButton);
+
+       /* newGameButton.addEventListener("click",function(){
+            var table = document.querySelector('table');
+            table.remove();
+            isGameStart = 0;
+            minesList = [];
+            ticks=0;
+            var spanEl = document.querySelector('span');
+            if (spanEl) {
+                spanEl.remove();
+            }
+            var divElement = document.querySelectorAll('div');
+            divElement[2].textContent = 0;
+            divElement[3].textContent = 0;
+            fieldCreator(sizeX, sizeY);
+            })*/
     }
 
     function initialValues(table, sizeX, sizeY) {
@@ -354,5 +376,6 @@
     minesMarker();
     sizeMenu();
     fieldCreator(sizeX, sizeY);
+
 
 }());
