@@ -55,11 +55,15 @@
     function cellContent() {
 
         document.body.addEventListener("click", function (event) {
-
+            var currentCell = document.querySelectorAll('td');
             if ((event.target.nodeName == "BUTTON") && (event.target.getAttribute('class') != 'marked')) {
-                event.target.remove();
                 if (cellContentList[event.target.id] != 'buh') {
                     isGameStart++;
+                    for (var i = 0; i < currentCell.length; i++) {
+                        if ((currentCell[i].id == event.target.id) && (currentCell[i].textContent != 'buh')) {
+                            currentCell[i].textContent = cellContentList[event.target.id];
+                        }
+                    }
                 } else {
                     isGameEnd++;
                     var loseNode = document.createElement('span');
@@ -73,20 +77,7 @@
                             currentCell[i].setAttribute('class', 'mine');
                         }
                     }
-
                 }
-
-
-                var currentCell = document.querySelectorAll('td');
-                for (var i = 0; i < currentCell.length; i++) {
-                    if ((currentCell[i].id == event.target.id) && (currentCell[i].textContent != 'buh')) {
-                        currentCell[i].textContent = cellContentList[event.target.id];
-                    } else if ((currentCell[i].id == event.target.id) && (currentCell[i].textContent == 'buh')) {
-                        currentCell[i].textContent = '';
-                        currentCell[i].setAttribute('class', 'mine');
-                    }
-                }
-
 
                 if (cellContentList[event.target.id] == '') {
                     var emptyOpenCell = emptyCell(event, cellContentList);
@@ -168,10 +159,8 @@
         for (var m = 0; m < cellList.length; m++) {
             neiborDetermination(event, data, cellList[m]);
         }
-
         return cellList;
     }
-
 
     function minesMarker() {
         document.body.addEventListener("mousedown", function (event) {
