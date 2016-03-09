@@ -27,7 +27,7 @@ tools["Flood fill"] = function (event, cx) {
         return false;
     }
 
-    function neiborDetermination(data, i, j) {
+    function neighbourDetermination(data, i, j) {
         var neighbourList = {};
         neighbourList.x = [];
         neighbourList.y = [];
@@ -58,6 +58,6 @@ tools["Flood fill"] = function (event, cx) {
     }
 
     for (var i = 0; i < pointsList.x.length; i++) {
-        neiborDetermination(data, pointsList.x[i], pointsList.y[i]);
+        neighbourDetermination(data, pointsList.x[i], pointsList.y[i]);
     }
 };
