@@ -100,10 +100,12 @@
                     ((sizeX * sizeY == 30 * 16) && (currentButton.length == 99))) {
                     isGameEnd++;
 
+                    var table = document.querySelector('table');
                     var winNode = document.createElement('span');
-                    var winMessage = document.createTextNode('You are win!!!!');
+                    var winMessage = document.createTextNode('You are win!');
+                    winNode.setAttribute('style', 'margin-top: -' + (table.offsetHeight / 2 + 100) + 'px;');
                     winNode.appendChild(winMessage);
-                    document.body.appendChild(winNode);
+                    table.appendChild(winNode);
 
                 }
 
@@ -254,7 +256,6 @@
 
 // create select event
         var select = document.querySelector("select");
-        select.setAttribute('style', 'margin: 30px 0 0 75px;');
         select.addEventListener("change", function () {
                 for (var i = 0; i < select.options.length; i++) {
                     var table = document.querySelector('table');
