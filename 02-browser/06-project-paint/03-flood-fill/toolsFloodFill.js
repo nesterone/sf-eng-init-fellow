@@ -28,31 +28,31 @@ tools["Flood fill"] = function (event, cx) {
     }
 
     function neiborDetermination(data, i, j) {
-        var naiborList = {};
-        naiborList.x = [];
-        naiborList.y = [];
+        var neighbourList = {};
+        neighbourList.x = [];
+        neighbourList.y = [];
         if (colorDetermination(data, i - 1, j)) {
-            naiborList.x.push(i - 1);
-            naiborList.y.push(j);
+            neighbourList.x.push(i - 1);
+            neighbourList.y.push(j);
         }
         if (colorDetermination(data, i + 1, j)) {
-            naiborList.x.push(i + 1);
-            naiborList.y.push(j);
+            neighbourList.x.push(i + 1);
+            neighbourList.y.push(j);
         }
         if (colorDetermination(data, i, j - 1)) {
-            naiborList.x.push(i);
-            naiborList.y.push(j - 1);
+            neighbourList.x.push(i);
+            neighbourList.y.push(j - 1);
         }
         if (colorDetermination(data, i, j + 1)) {
-            naiborList.x.push(i);
-            naiborList.y.push(j + 1);
+            neighbourList.x.push(i);
+            neighbourList.y.push(j + 1);
         }
-        for (var i = 0; i < naiborList.x.length; i++) {
-            if ((workArray[naiborList.x[i] + naiborList.y[i] * canvas.width] != true)) {
-                pointsList.x.push(naiborList.x[i]);
-                pointsList.y.push(naiborList.y[i]);
-                workArray[naiborList.x[i] + naiborList.y[i] * canvas.width] = true;
-                cx.fillRect(naiborList.x[i], naiborList.y[i], 1, 1);
+        for (var i = 0; i < neighbourList.x.length; i++) {
+            if ((workArray[neighbourList.x[i] + neighbourList.y[i] * canvas.width] != true)) {
+                pointsList.x.push(neighbourList.x[i]);
+                pointsList.y.push(neighbourList.y[i]);
+                workArray[neighbourList.x[i] + neighbourList.y[i] * canvas.width] = true;
+                cx.fillRect(neighbourList.x[i], neighbourList.y[i], 1, 1);
             }
         }
     }
