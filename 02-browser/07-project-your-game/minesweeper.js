@@ -81,6 +81,10 @@
                             currentCell[i].setAttribute('class', 'mine');
                         }
                     }
+                    var restButtons = document.querySelectorAll('button');
+                    for (var i = 0; i < restButtons.length; i++) {
+                            restButtons[i].setAttribute('disabled', 'false');
+                    }
                 }
 
                 if (cellContentList[event.target.id] == '') {
