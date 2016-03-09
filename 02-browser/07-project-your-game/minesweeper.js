@@ -67,7 +67,6 @@
                 } else {
                     isGameEnd++;
                     var table = document.querySelector('table');
-                    console.log(table.offsetHeight);
                     var gameOverNode = document.createElement('span');
 
                     var gameOverMessage = document.createTextNode('Game over');
