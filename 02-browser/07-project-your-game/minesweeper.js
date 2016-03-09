@@ -66,10 +66,14 @@
                     }
                 } else {
                     isGameEnd++;
-                    var loseNode = document.createElement('span');
-                    var loseMessage = document.createTextNode('You are lose');
-                    loseNode.appendChild(loseMessage);
-                    document.body.appendChild(loseNode);
+                    var table = document.querySelector('table');
+                    console.log(table.offsetHeight);
+                    var gameOverNode = document.createElement('span');
+
+                    var gameOverMessage = document.createTextNode('Game over');
+                    gameOverNode.appendChild(gameOverMessage);
+                    gameOverNode.setAttribute('style', 'margin-top: -' + (table.offsetHeight / 2 + 100) + 'px;');
+                    table.appendChild(gameOverNode);
                     var currentCell = document.querySelectorAll('td');
                     for (var i = 0; i < currentCell.length; i++) {
                         if (cellContentList[i] == 'buh') {
@@ -359,6 +363,7 @@
         }
         return array;
     }
+
     highLiting();
     cellContent();
     minesMarker();
