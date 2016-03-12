@@ -1,7 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/brotherhood-of-javascript/js-eng-init.png?label=ready&title=Ready)](https://waffle.io/brotherhood-of-javascript/js-eng-init)
 #Software Engineer Initiation
-
-[![Join the chat at https://gitter.im/brotherhood-of-javascript/js-eng-init](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/brotherhood-of-javascript/js-eng-init?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 JavaScript and others learning materials which help you to become software engineer.
 
