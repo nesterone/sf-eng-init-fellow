@@ -52,7 +52,6 @@ JavaScript and others learning materials which help you to become software engin
 1. [Embedding part of your app. JavaScript API.](/week-8)
 1. [License](#License)
  
-
 ## License
 
 (The MIT License)
