@@ -82,7 +82,7 @@
                     }
                     var restButtons = document.querySelectorAll('button');
                     for (var i = 0; i < restButtons.length; i++) {
-                            restButtons[i].setAttribute('disabled', 'false');
+                        restButtons[i].setAttribute('disabled', 'false');
                     }
                 }
 
@@ -220,6 +220,17 @@
         timeCountNode.appendChild(timeCountNodeName);
         menuNode.appendChild(timeCountNode);
 
+        var cellBorder = document.createElement('span');
+        cellBorder.setAttribute("class", "border");
+        document.body.appendChild(cellBorder);
+
+        for (var i = 0; i < 3; i++) {
+            var borderCell = document.createElement('th');
+            borderCell.setAttribute("class", "border");
+            cellBorder.appendChild(borderCell);
+        }
+
+
 // create menu content
         var selectNodeDiv = document.createElement('div');
 
@@ -296,9 +307,9 @@
         isGameEnd = 0;
         minesList = [];
         ticks = 0;
-        var spanEl = document.querySelector('span');
-        if (spanEl) {
-            spanEl.remove();
+        var spanEl = document.querySelectorAll('span');
+        if (spanEl[1]) {
+            spanEl[1].remove();
         }
         var divElement = document.querySelectorAll('div');
         divElement[2].textContent = 0;
