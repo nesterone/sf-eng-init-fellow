@@ -11,7 +11,7 @@
 
 ### Workshop: Learning NodeJs
 
-[Part 1: Learning NodeJs (ru)](https://learn.javascript.ru/screencast/nodejs)
+* [Part 1: Learning NodeJs (ru)](https://learn.javascript.ru/screencast/nodejs)
 
 
 ### Exercise: Disk Persistence
@@ -33,7 +33,7 @@
 
 ### Workshop: Creating Application
 
-[Part 2: Creating Application (ru)](https://learn.javascript.ru/screencast/nodejs)
+* [Part 2: Creating Application (ru)](https://learn.javascript.ru/screencast/nodejs)
 
 
 **[<= Back](../../00-learn-nodejs-basic/learn-nodejs-basics.md)**		*	*	*	**[Next =>](../../04-code-organization.md)**
