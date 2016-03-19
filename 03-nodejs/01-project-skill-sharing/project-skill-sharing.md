@@ -9,19 +9,19 @@
 
 ### Exercises: Disk Persistence
 
-[Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
+* [Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
 
 ### Exercises: Comment field resets
 
-[Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
+* [Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
 
 ### Exercises: Better templates
 
-[Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
+* [Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
 
 ### Exercises: The unscriptables
 
-[The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
+* [The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
 **Additional**
 
