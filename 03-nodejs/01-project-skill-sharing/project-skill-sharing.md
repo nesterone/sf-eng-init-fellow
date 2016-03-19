@@ -23,9 +23,6 @@
 
 * [The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
-**Additional**
-
-...
 
 **[⬆ back to top](#table-of-contents)**
 
