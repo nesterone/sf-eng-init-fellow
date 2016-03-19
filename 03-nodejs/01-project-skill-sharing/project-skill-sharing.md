@@ -2,11 +2,10 @@
 
 **[<= Back](../../00-learn-nodejs-basic/learn-nodejs-basics.md)**		*	*	*	**[Next =>](../../04-code-organization.md)**
 
-##Theory
-
-1. [Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
-
 ## Practice
+
+ [Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
+
 
 ### Exercises: Disk Persistence
 
