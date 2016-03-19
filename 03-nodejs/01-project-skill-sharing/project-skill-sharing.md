@@ -7,19 +7,19 @@
  [Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
 
 
-### Exercises: Disk Persistence
+### Exercise: Disk Persistence
 
 * [Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
 
-### Exercises: Comment field resets
+### Exercise: Comment field resets
 
 * [Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
 
-### Exercises: Better templates
+### Exercise: Better templates
 
 * [Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
 
-### Exercises: The unscriptables
+### Exercise: The unscriptables
 
 * [The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
