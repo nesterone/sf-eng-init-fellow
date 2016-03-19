@@ -24,6 +24,4 @@
 * [The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
 
-**[⬆ back to top](#table-of-contents)**
-
 **[<= Back](../../00-learn-nodejs-basic/learn-nodejs-basics.md)**		*	*	*	**[Next =>](../../04-code-organization.md)**
