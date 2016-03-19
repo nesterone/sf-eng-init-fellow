@@ -2,21 +2,27 @@
 
 **[<= Back](../../00-learn-nodejs-basic/learn-nodejs-basics.md)**		*	*	*	**[Next =>](../../04-code-organization.md)**
 
-## Table of Contents
-
-> Time: (~4h)
+##Theory
 
 1. [Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
 
-**Practice**
+## Practice
 
-> Time: (~2d)
+### Exercises: Disk Persistence
 
-1. Exercises  
-    * Disk Persistence
-    * Comment filed reset
-    * Better templates
-    * The unscriptables
+[Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
+
+### Exercises: Comment field resets
+
+[Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
+
+### Exercises: Better templates
+
+[Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
+
+### Exercises: The unscriptables
+
+[The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
 **Additional**
 
