@@ -2,13 +2,13 @@
 
 **[<= Back](../../07-project-your-game/project-your-game.md)**		*	*	*	**[Next =>](../01-project-skill-sharing.md)**
 
-## Table of Contents
+### Theory
 
 > Time: (~4h)
 
 1. [NodeJs](http://eloquentjavascript.net/20_node.html)
 
-**Practice**
+### Practice
 
 > Time: (~3d)
 
