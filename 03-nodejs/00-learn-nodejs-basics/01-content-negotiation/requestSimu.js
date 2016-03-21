@@ -6,7 +6,7 @@ var http = require("http");
 var request = http.request({
     hostname: "localhost",
     port: 8000,
-    path: "/text-3",
+    path: "/text/",
     method: "DELETE"
 }, function(response) {
     console.log(response.statusCode);

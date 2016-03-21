@@ -63,9 +63,7 @@ methods.DELETE = function (path, respond) {
 methods.MKCOL = function (path, respond) {
     fs.stat(path, function (error, stats) {
         if (error && error.code == "ENOENT") {
-            fs.mkdir(path, function (err) {
-
-            });
+            fs.mkdir(path, respondErrorOrNothing(respond));
         } else if (stats.isDirectory())
             respond(204);
     });
