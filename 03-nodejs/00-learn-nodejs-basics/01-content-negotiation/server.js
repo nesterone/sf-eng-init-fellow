@@ -25,7 +25,7 @@ http.createServer(function (request, response) {
 
 function urlToPath(url) {
     var path = require("url").parse(url).pathname;
-    return "." + decodeURIComponent(path).replace(/(\/|\\)\.\.(\/|\\)/g,"/");
+    return "." + decodeURIComponent(path).replace(/(\/|\\)\.\.(\/|\\)/g, "/");
 }
 
 methods.GET = function (path, respond) {
@@ -59,6 +59,18 @@ methods.DELETE = function (path, respond) {
             fs.unlink(path, respondErrorOrNothing(respond));
     });
 };
+
+methods.MKCOL = function (path, respond) {
+    fs.stat(path, function (error, stats) {
+        if (error && error.code == "ENOENT") {
+            fs.mkdir(path, function (err) {
+
+            });
+        } else if (stats.isDirectory())
+            respond(204);
+    });
+};
+
 
 function respondErrorOrNothing(respond) {
     return function (error) {

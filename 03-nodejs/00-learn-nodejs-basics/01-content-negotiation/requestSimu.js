@@ -6,8 +6,8 @@ var http = require("http");
 var request = http.request({
     hostname: "localhost",
     port: 8000,
-    path: "../../text.txt",
-    method: "GET"
+    path: "/text-3",
+    method: "DELETE"
 }, function(response) {
     console.log(response.statusCode);
     response.on("end", function() {
