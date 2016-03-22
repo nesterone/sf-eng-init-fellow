@@ -20,27 +20,32 @@ function fileListContent() {
     req.send(null);
 }
 
-var req = new XMLHttpRequest();
-req.open("GET", "http://localhost:8000/package.json", true);
-req.addEventListener("load", function () {
-    if (req.status < 400) {
-       console.log(req.response);
+var select = document.querySelector("select");
+select.addEventListener("change", function () {
+    for (var i = 0; i < select.options.length; i++) {
+        var option = select.options[i];
+        if (option.selected) {
+            var fileName = option.value;
+            fileContent(fileName);
+        }
     }
 });
-req.send(null);
 
 
-
-
-
-
-
-
+function fileContent(fileName) {
+    var req = new XMLHttpRequest();
+    req.open("GET", "http://localhost:8000/" + fileName, true);
+    req.addEventListener("load", function () {
+        if (req.status < 400) {
+            var file = document.getElementById("file");
+            file.value = req.response;
+        }
+    });
+    req.send(null);
+}
 
 
 fileListContent();
-
-
 
 
 /*var http = require("http");
