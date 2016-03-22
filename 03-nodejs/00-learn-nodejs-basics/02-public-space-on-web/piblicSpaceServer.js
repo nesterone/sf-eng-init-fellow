@@ -1,18 +1,15 @@
-/**
- *    Find and fix leaks
- *    Provide
- */
-
 var http = require("http"),
     fs = require("fs"),
-    mime = require("../.resources/mime");
+    mime = require("mime");
 
 var methods = Object.create(null);
 
 http.createServer(function(request, response) {
     function respond(code, body, type) {
         if (!type) type = "text/plain";
-        response.writeHead(code, {"Content-Type": type});
+        response.writeHead(code, {"Content-Type": type,
+            'Access-Control-Allow-Origin': '*'});
+
         if (body && body.pipe)
             body.pipe(response);
         else
