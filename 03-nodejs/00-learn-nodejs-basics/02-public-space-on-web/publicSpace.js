@@ -1,4 +1,5 @@
 //Your code here
+/*
 function fileListCreator(listOfFiles) {
     var fileList = document.getElementById("filelist");
     for (var i = 1; i < listOfFiles.length; i++) {
@@ -31,7 +32,6 @@ select.addEventListener("change", function () {
     }
 });
 
-
 function fileContent(fileName) {
     var req = new XMLHttpRequest();
     req.open("GET", "http://localhost:8000/" + fileName, true);
@@ -45,20 +45,10 @@ function fileContent(fileName) {
 }
 
 
-fileListContent();
+fileListContent();*/
 
-
-/*var http = require("http");
-
- var request = http.request({
- hostname: "localhost",
- port: 8000,
- path: "/",
- method: "GET"
- }, function(response) {
- response.on("data", function(chunk){console.log(chunk.toString())});
- response.on("end", function() {
- return;
- });
- });
- request.end();*/
+var data = "111111";
+var req = new XMLHttpRequest();
+req.open("PUT", "http://localhost:8000/text.txt", true);
+req.responseType = 'text/plain';
+req.send(data);
