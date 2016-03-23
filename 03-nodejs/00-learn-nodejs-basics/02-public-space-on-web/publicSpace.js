@@ -13,6 +13,11 @@ function fileListContent() {
     req.addEventListener("load", function () {
         if (req.status < 400) {
             var list = req.responseText.split("\n");
+            list.forEach(function(item, i, arr){
+                if (item.indexOf(".")<0){
+                    arr.splice(i,1);
+                }
+            });
             fileListCreator(list);
         }
     });
