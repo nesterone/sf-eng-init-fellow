@@ -1,5 +1,3 @@
-//Your code here
-/*
 function fileListCreator(listOfFiles) {
     var fileList = document.getElementById("filelist");
     for (var i = 1; i < listOfFiles.length; i++) {
@@ -20,18 +18,17 @@ function fileListContent() {
     });
     req.send(null);
 }
-
 var select = document.querySelector("select");
+var fileName;
 select.addEventListener("change", function () {
     for (var i = 0; i < select.options.length; i++) {
         var option = select.options[i];
         if (option.selected) {
-            var fileName = option.value;
+            fileName = option.value;
             fileContent(fileName);
         }
     }
 });
-
 function fileContent(fileName) {
     var req = new XMLHttpRequest();
     req.open("GET", "http://localhost:8000/" + fileName, true);
@@ -43,12 +40,15 @@ function fileContent(fileName) {
     });
     req.send(null);
 }
+fileListContent();
 
+var button = document.querySelector("button");
+button.addEventListener("click", function () {
+    var file = document.getElementById("file");
+    var data = file.value;
+    var req = new XMLHttpRequest();
+    req.open("PUT", "http://localhost:8000/" + fileName, true);
+    req.send(file.value);
+    fileContent(fileName);
 
-fileListContent();*/
-
-var data = "111111";
-var req = new XMLHttpRequest();
-req.open("PUT", "http://localhost:8000/text.txt", true);
-req.responseType = 'text/plain';
-req.send(data);
+});
