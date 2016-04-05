@@ -1,4 +1,3 @@
-// Your code here
 var http = require("http");
 var reqTypes = ["text/plain", "text/html", "application/json"];
 
