@@ -1,11 +1,15 @@
 var http = require("http");
 var Router = require("./router");
 var ecstatic = require("ecstatic");
-var fs = require("fs");
 var jsonfile = require('jsonfile');
 
 var fileServer = ecstatic({root: "./public"});
 var router = new Router();
+
+var talksList = Object.create(null);
+var changes = [];
+
+var talks = jsonfile.readFileSync('./public/talks.json');
 
 http.createServer(function (request, response) {
     if (!router.resolve(request, response))
@@ -23,8 +27,6 @@ function respondJSON(response, status, data) {
     respond(response, status, JSON.stringify(data),
         "application/json");
 }
-
-var talks = Object.create(null);
 
 router.add("GET", /^\/talks\/([^\/]+)$/,
     function (request, response, title) {
@@ -146,23 +148,11 @@ function waitForChanges(since, response) {
     }, 90 * 1000);
 }
 
-var changes = [];
-var regObject = {"title":[], "time":[]};
 function registerChange(title) {
-
-    jsonfile.readFile('./public/talks.json', function(err, obj) {
-        regObject.time = obj.time;
-        regObject.title = obj.title;
-        console.log(obj);
-    });
-    regObject.time.push(Date.now());
-    regObject.title.push(title);
-
-    jsonfile.writeFile('./public/talks.json', regObject, {spaces: 2}, function (err) {
+    talksList[title] = talks[title];
+    jsonfile.writeFile('./public/talks.json', talksList, {spaces: 2}, function (err) {
         console.error(err)
     });
-
-
 
     changes.push({title: title, time: Date.now()});
     waiting.forEach(function (waiter) {
