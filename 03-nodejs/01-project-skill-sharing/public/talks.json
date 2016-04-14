@@ -3,18 +3,43 @@
     "title": "12",
     "presenter": "Mike",
     "summary": "123123",
-    "comments": []
-  },
-  "12233": {
-    "title": "12233",
-    "presenter": "Mike",
-    "summary": "333333",
-    "comments": []
-  },
-  "1111111": {
-    "title": "1111111",
-    "presenter": "Mike",
-    "summary": "333333",
-    "comments": []
+    "comments": [
+      {
+        "author": "Iaroslav",
+        "message": "hello"
+      },
+      {
+        "author": "Mike",
+        "message": "hi"
+      },
+      {
+        "author": "Iaroslav",
+        "message": "qwerwerqwer"
+      },
+      {
+        "author": "Mike",
+        "message": "xcvxcvasdfasdf"
+      },
+      {
+        "author": "Iaroslav",
+        "message": "asdfasdfasdfasdfs"
+      },
+      {
+        "author": "Mike",
+        "message": "sadfasdfasdfasdfc"
+      },
+      {
+        "author": "Iaroslav",
+        "message": "2222"
+      },
+      {
+        "author": "Mike",
+        "message": "asdasd"
+      },
+      {
+        "author": "Mike",
+        "message": "sdfasdf"
+      }
+    ]
   }
 }
