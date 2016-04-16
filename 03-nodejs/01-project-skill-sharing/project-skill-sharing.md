@@ -4,36 +4,37 @@
 
 ## Theory
 
+* [Eloquent Javascript: Project Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
+
+## Additinonal
+
+#### Workshop: ExpressWorks
+
+* [NodeSchool: ExpressWorks](https://github.com/azat-co/expressworks)
+* [NodeSchool: Make me Hapi](https://github.com/hapijs/makemehapi)
 
 
-## Practice
+##  Practice
 
+#### Exercise: Disk Persistence
 
-### Workshop: Learning NodeJs
+* [Eloquent Javascript: Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
 
-* [Part 1: Learning NodeJs (ru)](https://learn.javascript.ru/screencast/nodejs)
+#### Exercise: Comment field resets
 
+* [Eloquent Javascript: Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
 
-### Exercise: Disk Persistence
+#### Exercise: Better templates
 
-* [Skill-Sharing Website](http://eloquentjavascript.net/21_skillsharing.html)
-* [Disk Persistence](http://eloquentjavascript.net/21_skillsharing.html#h_QcUCZfnLE+)
+* [Eloquent Javascript: Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
 
-### Exercise: Comment field resets
+#### Exercise: The unscriptables
 
-* [Comment field resets](http://eloquentjavascript.net/21_skillsharing.html#h_oMIXw3b5pk)
+* [Eloquent Javascript: The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
 
-### Exercise: Better templates
-
-* [Better templates](http://eloquentjavascript.net/21_skillsharing.html#h_mAO3w3FVBR)
-
-### Exercise: The unscriptables
-
-* [The unscriptables](http://eloquentjavascript.net/21_skillsharing.html#h_V+TcFyuz/v)
-
-### Workshop: Creating Application
-
-* [Part 2: Creating Application (ru)](https://learn.javascript.ru/screencast/nodejs)
+#### Challenge: Express/Hapi it
+ 
+Rewrite `Project Skill Sharing Website` to use Express or Hapi framework 
 
 
 **[<= Back](../../00-learn-nodejs-basic/learn-nodejs-basics.md)**		*	*	*	**[Next =>](../../04-code-organization.md)**
