@@ -1,0 +1,27 @@
+{
+  "name": "try-bdd-with-utils",
+  "version": "0.1.0",
+  "description": "Project Template to try TDD/BDD technique on common utils functions",
+  "main": "src/utils.js",
+  "scripts": {
+    "test": "mocha test.js",
+    "test-in-browser": "beefy test.js"
+  },
+  "keywords": [
+    "test",
+    "bdd",
+    "utils",
+    "tdd",
+    "learn",
+    "study"
+  ],
+  "author": "nesterone",
+  "license": "MIT",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "chai": "^3.0.0"
+  }
+}
