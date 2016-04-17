@@ -23,10 +23,6 @@
 
 ## Practice
 
-#### Workshop: Test Anything
-
-* [NodeSchool: Test Anything](https://github.com/finnp/test-anything)
-
 #### Exercise: Try Tdd Bdd with Utils 
 
 Write tests and implementation for [try-bdd-with-utils](./try-tdd-bdd-with-utils)
@@ -34,5 +30,8 @@ Write tests and implementation for [try-bdd-with-utils](./try-tdd-bdd-with-utils
 * write you own implementation
 * don't use build-in functionality like Array's methods
 
+#### Workshop: Test Anything
+
+* [NodeSchool: Test Anything](https://github.com/finnp/test-anything)
 
 **[<= Back](../organize-code/modules.md)**		*	*	*	**[Next =>](project-programming-language.md)**
