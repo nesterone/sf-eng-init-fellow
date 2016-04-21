@@ -66,22 +66,35 @@ function instantiateTemplate(name, values) {
         });
     }
 
+    function getAttr(node, attribute) {
+        return node.nodeType == ELEMENT_NODE &&
+            node.getAttribute(attribute);
+    }
+
     function instantiate(node) {
         if (node.nodeType == document.ELEMENT_NODE) {
             var copy = node.cloneNode();
-            for (var i = 0; i < node.childNodes.length; i++)
-                copy.appendChild(instantiate(node.childNodes[i]));
+            for (var i = 0; i < node.childNodes.length; i++) {
+                var child = node.childNodes[i];
+                var when = getAttr(child, "template-when");
+                var unless = getAttr(child, "template-unless");
+                if (when && !values[when] || unless && values[unless]) {
+                    continue;
+                }
+                var repeat = getAttr(child, "repeat");
+                if (repeat)
+                    (values[repeat] || []).forEach(function (element) {
+                        copy.appendChild(instantiate(child, element));
+                    });
+                copy.appendChild(instantiate(child, values));
+            }
             return copy;
         } else if (node.nodeType == document.TEXT_NODE) {
-            return document.createTextNode(
-                instantiateText(node.nodeValue));
-        } else {
-            return node;
+            return document.createTextNode(instantiateText(node.nodeValue, values));
         }
     }
 
-    var template = document.querySelector("#template ." + name);
-    return instantiate(template);
+    return instantiate(template, values);
 }
 
 function drawTalk(talk) {
