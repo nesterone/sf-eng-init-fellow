@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <title></title>
 </head>
 <body>
@@ -21,20 +20,9 @@
     }
 </style>
 
-    <iframe src="index2.html" id='innerIframe'>This is the frame from the index2.html</iframe>
+<iframe src="index2.html" id='innerIframe'>This is the frame from the index2.html</iframe>
 
-<script>
-    window.addEventListener("message",
-            function (e) {
-                if (e.origin !== 'http://localhost:8000') {
-                    return;
-                }
-                if (e.data=="up")
-                {
-                    window.scrollTo(0,0);
-                }
-            },
-            false);
-</script>
+<script src="iframe-parent-child.js"></script>
+
 </body>
 </html>
