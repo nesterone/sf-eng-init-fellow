@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .progress {
+        border: 1px solid blue;
+        width: 100px;
+        position: fixed;
+        top: 10px; right: 10px;
+    }
+    .progress > div {
+        height: 12px;
+        background: blue;
+        width: 0%;
+    }
+    body {
+        height: 2000px;
+    }
+    button{
+        margin-top: 1800px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <title></title>
 </head>
 <body>
-<button>Click on me</button>
+<div>Hello world!</div>
+<button id="button">Click on me</button>
+
+<script>
+    var button = document.body.querySelector("button");
+    button.addEventListener("click", function(){
+        top.postMessage('hello', 'http://localhost:8000');
+    });
+
+
+</script>
 </body>
 </html>
