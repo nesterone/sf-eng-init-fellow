@@ -2,33 +2,36 @@
 
 **[<= Back](../../07-project-your-game/project-your-game.md)**		*	*	*	**[Next =>](../01-project-skill-sharing.md)**
 
-## Table of Contents
+### Theory
 
-> Time: (~4h)
+1. [Art of Node: An introduction to Node.js](https://github.com/maxogden/art-of-node)
+1. [Eloquent Javascript: NodeJs](http://eloquentjavascript.net/20_node.html)
 
-1. [NodeJs](http://eloquentjavascript.net/20_node.html)
+### Additional
 
-**Practice**
+1. [Callback Hell: A guide to writing asynchronous JavaScript programs](http://callbackhell.com/)
 
-> Time: (~3d)
+### Practice
 
-1. Workshops
-    * [Learn NodeJs](https://github.com/workshopper/learnyounode)
-    * [How to NPM](https://github.com/npm/how-to-npm)
-    * [Stream Adventure](https://github.com/substack/stream-adventure)
-1. Exercises  
-    * Content negotiation, again
-    * Public Space on web
-        * Fixing a leak
-        * Creating directories
-        * Provide UI for Public Space
+### Workshop: Learn NodeJs
 
-**Additional**
+* [NodeSchool: Learn NodeJs](https://github.com/workshopper/learnyounode)
 
-1. [Stream Handbook](https://github.com/substack/stream-handbook)
-1. [Intro to Node.js from CodeSchool](https://www.youtube.com/watch?v=GJmFG4ffJZU) [11:16]
-1. [Philip Roberts: What the heck is the event loop anyway?](http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html) [26:00]
+### Exercise: Content negotiation, again
 
-**[⬆ back to top](#table-of-contents)**
+*  [Eloquent Javascript: Content negotiation, again](http://eloquentjavascript.net/20_node.html#h_R/n4kTrgEX)
+
+### Exercise: Fixing a leak
+
+*  [Eloquent Javascript: Fixing a leak](http://eloquentjavascript.net/20_node.html#h_yunNtKqBKK)
+
+### Exercise: Creating directories
+
+*  [Eloquent Javascript: Provide UI for Public Space](http://eloquentjavascript.net/20_node.html#h_NHUcwC79fZ)
+
+### Exercise: A public space on the web
+
+*  [Eloquent Javascript: A public space on the web](http://eloquentjavascript.net/20_node.html#h_TLRTlwK6ZU)
+
 
 **[<= Back](../../07-project-your-game/project-your-game.md)**		*	*	*	**[Next =>](../01-project-skill-sharing.md)**
