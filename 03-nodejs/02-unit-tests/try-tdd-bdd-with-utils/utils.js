@@ -63,6 +63,16 @@ module.exports = {
      */
 
     trim: function (str) {
+        var i = 0;
+        var j = str.length;
+        while (str[i] == ' ')
+            i++;
+        if (str[str.length - 1] == ' ') {
+            var j = str.length - 1;
+            while (str[j] == ' ')
+                j--;
+        }
+        return str.substring(i, j + 1);
     },
 
     /**

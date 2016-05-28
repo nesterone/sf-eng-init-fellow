@@ -30,4 +30,15 @@ describe('Utils', function () {
         });
     });
 
+    describe('trim', function () {
+
+        it("should cut of any count of spaces from the beginning and from the end of the string", function () {
+            expect(utils.trim('     given string   ')).to.equal('given string');
+        });
+
+    });
+
+
+
+
 });
