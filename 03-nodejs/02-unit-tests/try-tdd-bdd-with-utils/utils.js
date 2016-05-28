@@ -82,6 +82,14 @@ module.exports = {
      */
 
     reverse: function (list) {
+        var tankA;
+        var n = list.length - 1;
+        for (var i = 0; i <= Math.floor(n / 2); i++) {
+            tankA = list[i];
+            list[i] = list[n - i];
+            list[n - i] = tankA;
+        }
+        return list;
     },
 
     /**

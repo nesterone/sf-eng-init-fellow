@@ -38,7 +38,13 @@ describe('Utils', function () {
 
     });
 
+    describe('reverse', function () {
 
+        it("should reverse a specified list", function () {
+            expect(utils.reverse([1, 2, 3, 4, 5])).to.eql([5, 4, 3, 2, 1]);
+        });
+
+    });
 
 
 });
