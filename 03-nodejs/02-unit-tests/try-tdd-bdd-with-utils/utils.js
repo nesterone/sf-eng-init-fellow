@@ -120,6 +120,30 @@ module.exports = {
      */
 
     groupBy: function (list, iterator) {
+        var result = {
+            "even": [],
+            "odd": []
+        };
+
+        function iterator(listElement) {
+            if (listElement % 2 == 0) {
+                return 'even';
+            }
+            else {
+                return 'odd';
+            }
+        }
+
+        for (var i = 0; i < list.length; i++) {
+            if (iterator(list[i]) == "even") {
+                result.even.push(list[i]);
+            } else if (iterator(list[i]) == "odd") {
+                result.odd.push(list[i]);
+            }
+
+        }
+        return result;
+
     },
 
 

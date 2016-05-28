@@ -53,4 +53,12 @@ describe('Utils', function () {
         });
 
     });
+
+    describe('groupBy', function () {
+
+        it("should multiply each element on 2", function () {
+            expect(utils.groupBy([1, 2, 3, 4, 5, 6])).to.eql({"even": [2, 4, 6], "odd": [1, 3, 5]});
+        });
+
+    });
 });
