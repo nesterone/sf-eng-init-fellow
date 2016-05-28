@@ -38,6 +38,21 @@ module.exports = {
      */
 
     camelize: function (sequence) {
+        if (typeof sequence == 'string') {
+            var arrayOfStrings = sequence.split(' ');
+        } else if (typeof sequence == 'object') {
+            var arrayOfStrings = sequence;
+        }
+
+        for (var i = 0; i < arrayOfStrings.length; i++) {
+            var tank = arrayOfStrings[i][0].toUpperCase();
+            for (var j = 1; j < arrayOfStrings[i].length; j++) {
+                var tank = tank + arrayOfStrings[i][j];
+            }
+            arrayOfStrings[i] = tank;
+        }
+
+        return arrayOfStrings.join('');
     },
 
 

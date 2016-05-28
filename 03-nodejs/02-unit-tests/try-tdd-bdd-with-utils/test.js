@@ -20,4 +20,14 @@ describe('Utils', function () {
 
     });
 
+    describe('camelize', function () {
+
+        it("should create CamelCase string from the given string sequence", function () {
+            expect(utils.camelize('given string sequence')).to.equal('GivenStringSequence');
+        });
+        it("should create CamelCase string from the given array", function () {
+            expect(utils.camelize(['given', 'string', 'sequence'])).to.equal('GivenStringSequence');
+        });
+    });
+
 });
