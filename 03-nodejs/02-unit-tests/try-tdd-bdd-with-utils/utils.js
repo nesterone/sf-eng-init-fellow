@@ -101,6 +101,14 @@ module.exports = {
 
 
     map: function (list, iterator) {
+        function iterator(a, b) {
+            return a * b;
+        }
+
+        for (var i = 0; i < list.length; i++) {
+            list[i] = iterator(list[i], 2);
+        }
+        return list;
     },
 
 

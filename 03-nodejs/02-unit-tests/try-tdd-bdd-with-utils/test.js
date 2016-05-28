@@ -46,5 +46,11 @@ describe('Utils', function () {
 
     });
 
+    describe('map', function () {
 
+        it("should multiply each element on 2", function () {
+            expect(utils.map([1, 2, 3, 4, 5])).to.eql([2, 4, 6, 8, 10]);
+        });
+
+    });
 });
