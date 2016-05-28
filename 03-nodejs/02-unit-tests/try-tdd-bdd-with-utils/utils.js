@@ -154,8 +154,18 @@ module.exports = {
      * @return {Function} new  function which could be invoked only once
      */
 
-    once: function (func) {
-    },
+    once: func = (function () {
+            var executing = false;
+            return function () {
+                if (!executing) {
+                    executing = true;
+                    return "executing first time";
+                }
+                else if (executing) {
+                    return "already executed";
+                }
+            }
+        })(),
 
     /**
      * Creates and returns a new debounced version of the passed function

@@ -56,8 +56,17 @@ describe('Utils', function () {
 
     describe('groupBy', function () {
 
-        it("should multiply each element on 2", function () {
+        it("should group the sequence elements by the some rule ", function () {
             expect(utils.groupBy([1, 2, 3, 4, 5, 6])).to.eql({"even": [2, 4, 6], "odd": [1, 3, 5]});
+        });
+
+    });
+
+    describe('once', function () {
+
+        it("should executed once", function () {
+            expect(utils.once()).to.eql("executing first time");
+            expect(utils.once()).to.eql("already executed");
         });
 
     });
