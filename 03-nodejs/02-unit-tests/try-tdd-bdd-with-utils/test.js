@@ -98,4 +98,12 @@ describe('Utils', function () {
         });
 
     });
+
+    describe('isString', function () {
+
+        it("should determine is the object an string?", function () {
+            expect(utils.isString('hello')).to.eql("string");
+        });
+
+    });
 });

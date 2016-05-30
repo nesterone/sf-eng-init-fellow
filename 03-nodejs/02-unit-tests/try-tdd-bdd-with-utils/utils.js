@@ -224,9 +224,14 @@ module.exports = {
         }
     },
 
-    //TODO: provide JsDocs description
+    /**
+     * Check typeof object and determine is it a object type?
+     * @param {string} checking object
+     * @return {} return type of object
+     */
 
     isString: function (obj) {
+        return typeof obj;
     }
 
 };
