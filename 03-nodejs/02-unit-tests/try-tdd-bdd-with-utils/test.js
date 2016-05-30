@@ -80,4 +80,13 @@ describe('Utils', function () {
         });
 
     });
+
+    describe('isArray', function () {
+
+        it("should determine is the object an Array?", function () {
+            var obj = [];
+            expect(utils.isArray(obj)).to.eql(true);
+        });
+
+    });
 });
