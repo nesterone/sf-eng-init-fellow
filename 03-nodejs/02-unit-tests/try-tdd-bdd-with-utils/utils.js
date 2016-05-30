@@ -155,17 +155,17 @@ module.exports = {
      */
 
     once: func = (function () {
-            var executing = false;
-            return function () {
-                if (!executing) {
-                    executing = true;
-                    return "executing first time";
-                }
-                else if (executing) {
-                    return "already executed";
-                }
+        var executing = false;
+        return function () {
+            if (!executing) {
+                executing = true;
+                return "executing first time";
             }
-        })(),
+            else if (executing) {
+                return "already executed";
+            }
+        }
+    })(),
 
     /**
      * Creates and returns a new debounced version of the passed function
@@ -179,9 +179,24 @@ module.exports = {
     debounce: function (func, wait) {
     },
 
-    //TODO: provide JsDocs description
+    /**
+     * Compare two lists
+     * @param {Array} listOne - the first list
+     * @param {Array} listTwo - the second list
+     * @return {} result of comparison
+     */
 
     same: function (listOne, listTwo) {
+        if ((typeof listOne == typeof listTwo) && (listOne.length = listTwo.length)) {
+            for (var i = 0; i < listOne.length; i++) {
+                if (listOne[i] != listTwo[i]) {
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            return false;
+        }
     },
 
     //TODO: provide JsDocs description

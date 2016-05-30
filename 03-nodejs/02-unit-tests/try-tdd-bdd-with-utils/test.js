@@ -70,4 +70,14 @@ describe('Utils', function () {
         });
 
     });
+
+    describe('same', function () {
+
+        it("should compare two sequences and determine they equality", function () {
+            var listOne = [1, 2, 3, 4];
+            var listTwo = [1, 2, 3, 4];
+            expect(utils.same(listOne, listTwo)).to.eql(true);
+        });
+
+    });
 });
