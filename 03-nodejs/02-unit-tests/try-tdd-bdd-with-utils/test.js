@@ -89,4 +89,13 @@ describe('Utils', function () {
         });
 
     });
+
+    describe('isObject', function () {
+
+        it("should determine is the object an Object?", function () {
+            var obj = {};
+            expect(utils.isObject(obj)).to.eql(true);
+        });
+
+    });
 });

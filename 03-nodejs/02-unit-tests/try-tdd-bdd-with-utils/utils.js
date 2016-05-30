@@ -209,9 +209,19 @@ module.exports = {
         return Array.isArray(obj);
     },
 
-    //TODO: provide JsDocs description
+    /**
+     * Check typeof object and determine is it a object type?
+     * @param {Object} checking object
+     * @return {} return type of object
+     */
 
     isObject: function (obj) {
+        if ((typeof obj == "object")&&(!Array.isArray(obj))) {
+            return true;
+        }
+        else {
+            return false;
+        }
     },
 
     //TODO: provide JsDocs description
