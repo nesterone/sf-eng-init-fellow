@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        height: 2000px;
+    }
+
+    button {
+        margin-top: 1800px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>Hello world!</div>
+<button id="button">Click on me</button>
+<script>
+    var button = document.body.querySelector("button");
+    button.addEventListener("click", function () {
+        top.postMessage('up', 'http://localhost:8000');
+    });
+</script>
+</body>
+</html>
