@@ -4,7 +4,8 @@
   "description": "",
   "main": "skillsharingServer.js",
   "dependencies": {
-    "ecstatic": "^1.4.0"
+    "ecstatic": "^1.4.0",
+    "jsonfile": "^2.2.3"
   },
   "devDependencies": {},
   "scripts": {
