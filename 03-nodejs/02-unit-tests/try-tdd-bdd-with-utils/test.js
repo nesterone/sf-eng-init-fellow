@@ -9,6 +9,9 @@ describe('Utils', function () {
         it("should have a default comparator for numbers", function () {
             expect(utils.sort([1, 5, 8, 4])).to.eql([1, 4, 5, 8]);
         });
+        it("should have a default comparator for numbers", function () {
+            expect(utils.sort([5, null, 8, 4])).to.eql([null, 4, 5, 8]);
+        });
 
     });
 
@@ -35,28 +38,39 @@ describe('Utils', function () {
         it("should cut of any count of spaces from the beginning and from the end of the string", function () {
             expect(utils.trim('     given string   ')).to.equal('given string');
         });
-
+        it("should cut of any count of spaces from the beginning of the string", function () {
+            expect(utils.trim('     given string')).to.equal('given string');
+        });
+        it("should return initial string", function () {
+            expect(utils.trim('given string')).to.equal('given string');
+        });
+        it("should cut of any count of spaces from the end of the string", function () {
+            expect(utils.trim('given string    ')).to.equal('given string');
+        });
     });
 
     describe('reverse', function () {
 
-        it("should reverse a specified list", function () {
+        it("should reverse a specified list of numbers", function () {
             expect(utils.reverse([1, 2, 3, 4, 5])).to.eql([5, 4, 3, 2, 1]);
         });
-
+        it("should reverse a specified list of string", function () {
+            expect(utils.reverse(['one', 'two', 'three', 'four', 'five'])).to.eql(['five', 'four', 'three', 'two', 'one']);
+        });
     });
 
     describe('map', function () {
 
         it("should multiply each element on 2", function () {
             expect(utils.map([1, 2, 3, 4, 5])).to.eql([2, 4, 6, 8, 10]);
+            expect(utils.map([1, 1, 1, 1, 1])).to.eql([2, 2, 2, 2, 2]);
         });
 
     });
 
     describe('groupBy', function () {
 
-        it("should group the sequence elements by the some rule ", function () {
+        it("should group the sequence of odd and even elements", function () {
             expect(utils.groupBy([1, 2, 3, 4, 5, 6])).to.eql({"even": [2, 4, 6], "odd": [1, 3, 5]});
         });
 
@@ -65,8 +79,9 @@ describe('Utils', function () {
     describe('once', function () {
 
         it("should executed once", function () {
-            expect(utils.once()).to.eql("executing first time");
-            expect(utils.once()).to.eql("already executed");
+            var once = utils.once;
+            expect(once()).to.eql(true);
+            expect(once()).to.eql(false);
         });
 
     });
@@ -102,7 +117,7 @@ describe('Utils', function () {
     describe('isString', function () {
 
         it("should determine is the object an string?", function () {
-            expect(utils.isString('hello')).to.eql("string");
+            expect(utils.isString('hello')).to.eql(true);
         });
 
     });

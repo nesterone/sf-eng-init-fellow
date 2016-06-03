@@ -154,16 +154,13 @@ module.exports = {
      * @return {Function} new  function which could be invoked only once
      */
 
-    once: func = (function () {
-        var executing = false;
-        return function () {
-            if (!executing) {
-                executing = true;
-                return "executing first time";
-            }
-            else if (executing) {
-                return "already executed";
-            }
+    once: (function () {
+        var called = false;
+        return function(){
+            if (!called){
+                called = true;
+                return true;
+            } else return false
         }
     })(),
 
@@ -216,7 +213,7 @@ module.exports = {
      */
 
     isObject: function (obj) {
-        if ((typeof obj == "object")&&(!Array.isArray(obj))) {
+        if ((typeof obj == "object") && (!Array.isArray(obj))) {
             return true;
         }
         else {
@@ -231,7 +228,7 @@ module.exports = {
      */
 
     isString: function (obj) {
-        return typeof obj;
+        return (typeof obj == 'string');
     }
 
 };
