@@ -86,6 +86,44 @@ describe('Utils', function () {
 
     });
 
+    describe('debounce', function () {
+        var spy = sinon.spy();
+
+        before(function() {
+            console.log('before');
+            clock = sinon.useFakeTimers();
+            spy();
+        });
+
+        after(function() {
+            console.log('after');
+            clock.restore();
+            spy();
+
+        });
+
+        it("should executed function after the determined time", function () {
+            function func(){return true}
+
+            setTimeout(function () {
+                timedOut = true;
+            }, 500);
+
+            timedOut.should.be.false;
+            clock.tick(510);
+            timedOut.should.be.true;
+
+            expect(utils.debounce(func, 300)).to.eql(false);
+            setTimeout(expect(utils.debounce(func, 300)).to.eql(true),300)
+
+            clock.tick(310);
+
+
+
+        });
+
+    });
+
     describe('same', function () {
 
         it("should compare two sequences and determine they equality", function () {
@@ -99,8 +137,11 @@ describe('Utils', function () {
     describe('isArray', function () {
 
         it("should determine is the object an Array?", function () {
-            var obj = [];
-            expect(utils.isArray(obj)).to.eql(true);
+            expect(utils.isArray([])).to.eql(true);
+            expect(utils.isArray({})).to.eql(false);
+            expect(utils.isArray(null)).to.eql(false);
+
+
         });
 
     });
@@ -108,8 +149,9 @@ describe('Utils', function () {
     describe('isObject', function () {
 
         it("should determine is the object an Object?", function () {
-            var obj = {};
-            expect(utils.isObject(obj)).to.eql(true);
+            expect(utils.isObject({})).to.eql(true);
+            expect(utils.isObject([])).to.eql(false);
+
         });
 
     });
@@ -118,6 +160,10 @@ describe('Utils', function () {
 
         it("should determine is the object an string?", function () {
             expect(utils.isString('hello')).to.eql(true);
+            expect(utils.isString(11)).to.eql(false);
+            expect(utils.isString(['hello'])).to.eql(false);
+
+
         });
 
     });

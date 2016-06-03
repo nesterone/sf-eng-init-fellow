@@ -174,6 +174,7 @@ module.exports = {
      */
 
     debounce: function (func, wait) {
+        return setTimeout(func, wait);
     },
 
     /**
