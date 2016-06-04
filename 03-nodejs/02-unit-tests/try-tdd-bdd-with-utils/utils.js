@@ -154,15 +154,15 @@ module.exports = {
      * @return {Function} new  function which could be invoked only once
      */
 
-    once: (function () {
+    once: function (func){
         var called = false;
-        return function(){
+        return function (){
             if (!called){
                 called = true;
-                return true;
-            } else return false
-        }
-    })(),
+                func();
+            }
+        };
+    },
 
     /**
      * Creates and returns a new debounced version of the passed function
