@@ -88,44 +88,31 @@ describe('Utils', function () {
 
     });
 
-   /* describe('debounce', function () {
-        var spy = sinon.spy();
-
-        before(function() {
+    describe('debounce', function () {
+        before(function () {
             console.log('before');
             clock = sinon.useFakeTimers();
-            spy();
         });
 
-        after(function() {
+        after(function () {
             console.log('after');
             clock.restore();
-            spy();
-
         });
 
         it("should executed function after the determined time", function () {
-            function func(){return true}
+            var callback = sinon.spy();
 
-            setTimeout(function () {
-                timedOut = true;
-            }, 500);
+            var func = utils.debounce(callback, 300);
 
-            timedOut.should.be.false;
-            clock.tick(510);
-            timedOut.should.be.true;
-
-            expect(utils.debounce(func, 300)).to.eql(false);
-            setTimeout(expect(utils.debounce(func, 300)).to.eql(true),300)
-
-            clock.tick(310);
-
-
+            clock.tick(100);
+            expect(callback.calledOnce).to.eql(false);
+            clock.tick(200);
+            expect(callback.calledOnce).to.eql(true);
 
         });
 
     });
-*/
+
     describe('same', function () {
 
         it("should compare two sequences and determine they equality", function () {
