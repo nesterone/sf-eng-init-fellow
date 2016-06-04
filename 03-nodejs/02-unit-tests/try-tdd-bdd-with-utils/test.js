@@ -86,6 +86,14 @@ describe('Utils', function () {
             expect(callback.calledTwice).to.eql(false);
         });
 
+        it("should take any number of arguments and executing once", function () {
+            var callback = sinon.spy();
+            var func = utils.once(callback);
+            func(callback, callback, callback);
+            func(callback, callback, callback);
+            expect(callback.calledThrice).to.eql(true);
+        });
+
     });
 
     describe('debounce', function () {
