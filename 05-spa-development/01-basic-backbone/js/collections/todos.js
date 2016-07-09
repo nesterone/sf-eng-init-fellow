@@ -1,6 +1,3 @@
-/**
- * Created by Iaroslav Zhbankov on 30.06.2016.
- */
 var app = app || {};
 
 // Todo Collection

@@ -1,6 +1,3 @@
-/**
- * Created by Iaroslav Zhbankov on 30.06.2016.
- */
 var app = app || {};
 
 // Todo Model
@@ -16,7 +13,7 @@ app.Todo = Backbone.Model.extend({
     },
 
     // Toggle the `completed` state of this todo item.
-    toggle: function () {
+    toggle: function() {
         this.save({
             completed: !this.get('completed')
         });

@@ -7,31 +7,8 @@
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-<script type="text/template" id="item-template">
-    <div class="view">
-        <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-        <label><%= title %></label>
-        <button class="destroy"></button>
-    </div>
-    <input class="edit" value="<%= title %>">
-</script>
-<script type="text/template" id="stats-template">
-    <span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
-    <ul id="filters">
-        <li>
-            <a class="selected" href="#/">All</a>
-        </li>
-        <li>
-            <a href="#/active">Active</a>
-        </li>
-        <li>
-            <a href="#/completed">Completed</a>
-        </li>
-    </ul>
-    <% if (completed) { %>
-    <button id="clear-completed">Clear completed (<%= completed %>)</button>
-    <% } %>
-</script>
+<script type="text/template" id="item-template"></script>
+<script type="text/template" id="stats-template"></script>
 <script src="js/lib/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="js/lib/node_modules/underscore/underscore-min.js"></script>
 <script src="js/lib/node_modules/backbone/backbone-min.js"></script>
@@ -42,7 +19,6 @@
 <script src="js/views/app.js"></script>
 <script src="js/routers/router.js"></script>
 <script src="js/app.js"></script>
-
 <section id="todoapp">
     <header id="header">
         <h1>todos</h1>
@@ -60,6 +36,33 @@
     <p>Written by <a href="https://github.com/addyosmani">Addy Osmani</a></p>
     <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 </div>
+<script type="text/template" id="item-template">
+    <div class="view">
+        <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+        <label><%= title %></label>
+        <button class="destroy"></button>
+    </div>
+    <input class="edit" value="<%= title %>">
+</script>
+
+<script type="text/template" id="stats-template">
+    <span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
+    <ul id="filters">
+        <li>
+            <a class="selected" href="#/">All</a>
+        </li>
+        <li>
+            <a href="#/active">Active</a>
+        </li>
+        <li>
+            <a href="#/completed">Completed</a>
+        </li>
+    </ul>
+    <% if (completed) { %>
+    <button id="clear-completed">Clear completed (<%= completed %>)</button>
+    <% } %>
+</script>
+
 
 </body>
 </html>
