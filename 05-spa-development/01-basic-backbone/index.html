@@ -29,7 +29,7 @@
     <div class="view">
         <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
         <label><%= title %></label>
-        <button class="destroy"></button>
+        <button class="destroy"> Delete</button>
     </div>
     <input class="edit" value="<%= title %>">
 </script>
@@ -52,9 +52,6 @@
     <% } %>
 </script>
 
-
-<script type="text/template" id="item-template"></script>
-<script type="text/template" id="stats-template"></script>
 <script src="js/lib/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="js/lib/node_modules/underscore/underscore-min.js"></script>
 <script src="js/lib/node_modules/backbone/backbone-min.js"></script>

@@ -14,7 +14,9 @@ app.TodoView = Backbone.View.extend({
 
     // The DOM events specific to an item.
     events: {
+        'click .toggle': 'toggleCompleted', // NEW
         'dblclick label': 'edit',
+        'click .destroy': 'clear',           // NEW
         'keypress .edit': 'updateOnEnter',
         'blur .edit': 'close'
     },
@@ -24,13 +26,38 @@ app.TodoView = Backbone.View.extend({
     // app, we set a direct reference on the model for convenience.
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
+        this.listenTo(this.model, 'destroy', this.remove);        // NEW
+        this.listenTo(this.model, 'visible', this.toggleVisible); // NEW
     },
 
-    // Re-renders the titles of the todo item.
+    // Re-render the titles of the todo item.
     render: function() {
         this.$el.html( this.template( this.model.attributes ) );
+
+        this.$el.toggleClass( 'completed', this.model.get('completed') ); // NEW
+        this.toggleVisible();                                             // NEW
+
         this.$input = this.$('.edit');
         return this;
+    },
+
+    // NEW - Toggles visibility of item
+    toggleVisible : function () {
+        this.$el.toggleClass( 'hidden',  this.isHidden());
+    },
+
+    // NEW - Determines if item should be hidden
+    isHidden : function () {
+        var isCompleted = this.model.get('completed');
+        return ( // hidden cases only
+            (!isCompleted && app.TodoFilter === 'completed')
+            || (isCompleted && app.TodoFilter === 'active')
+        );
+    },
+
+    // NEW - Toggle the `"completed"` state of the model.
+    togglecompleted: function() {
+        this.model.toggle();
     },
 
     // Switch this view into `"editing"` mode, displaying the input field.
@@ -45,6 +72,8 @@ app.TodoView = Backbone.View.extend({
 
         if ( value ) {
             this.model.save({ title: value });
+        } else {
+            this.clear(); // NEW
         }
 
         this.$el.removeClass('editing');
@@ -55,5 +84,10 @@ app.TodoView = Backbone.View.extend({
         if ( e.which === ENTER_KEY ) {
             this.close();
         }
+    },
+
+    // NEW - Remove the item, destroy the model from *localStorage* and delete its view.
+    clear: function() {
+        this.model.destroy();
     }
 });
