@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minesweeper</title>
+
+</head>
+<body>
+<style type="text/css">
+    button.initial {
+        background: deepskyblue;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #666;
+    }
+
+    button.new {
+        background: lightskyblue;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #666;
+    }
+
+    button.removed {
+        background: transparent;
+        border: 1px solid #666;
+    }
+
+    button.marked {
+        background: url(.resources/_flag.png) 100% 100% no-repeat;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #666;
+    }
+
+    input.newGame {
+        background: dodgerblue;
+        width: 100px;
+        height: 30px;
+        border: 1px solid #666;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        font-family: Helvetica, Arial, sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+        line-height: 1;
+        color: white;
+        text-shadow: 0 -1px 1px rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.5), inset 0 1px 1px rgba(255,255,255,.5);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.5), inset 0 1px 1px rgba(255,255,255,.5);
+        -o-box-shadow: 0 1px 2px rgba(0,0,0,.5), inset 0 1px 1px rgba(255,255,255,.5);
+        box-shadow: 0 1px 2px rgba(0,0,0,.5), inset 0 1px 1px rgba(255,255,255,.5);
+
+    }
+
+    td.mine {
+        background: url(.resources/_mine.png) 100% 100% no-repeat;
+        width: 32px;
+        height: 32px;
+        padding: 0px 0px;
+        border: 1px solid lightgrey;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+
+    table {
+        margin: 88px auto;
+        border-spacing: 0px 0px;
+    }
+
+    select {
+        margin: 26px 0 0 55px;
+    }
+
+    td {
+        font-size: 18px;
+        width: 32px;
+        height: 32px;
+        background: whitesmoke;
+        padding: 0px;
+        border: 1px solid lightgrey;
+        text-align: center;
+        line-height: 7px;
+        vertical-align: middle;
+
+    }
+
+    th {
+        margin: 0px auto;
+        width: 160px;
+        height: 20px;
+        background: whitesmoke;
+        border: 1px solid lightgrey;
+        text-align: center;
+    }
+    th.border{
+        margin: 0px 0px 10px 0px;
+        width: 158px;
+        height: 30px;
+        background: white;
+        padding: 0px 0px;
+        border: 1px solid lightgrey;
+        text-align: center;
+    }
+
+    span.border {
+        color: darkgray;
+        opacity: 0.8;
+        position: fixed;
+        margin: -67px 0px 0px 190px;
+    }
+    span {
+        color: darkgray;
+        font-size: 200px;
+        opacity: 0.8;
+        position: fixed;
+        left: 22%;
+    }
+
+    .center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 480px;
+        height: 20px;
+    }
+
+</style>
+
+<script src="minesweeper.js"></script>
+
+</body>
+</html>
