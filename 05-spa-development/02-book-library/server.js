@@ -15,12 +15,17 @@ var books = [
         id: 2,
         title: "JavaScript: The Definitive Guide, 5th Edition",
         author: "David Flanagan"
+    },
+    {
+        id: 3,
+        title: "Atlant",
+        author: "Ain Rand"
     }
 ];
 
-var nextId = 3;
+var nextId = 4;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/site'));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     if(req.url.indexOf("/api") === 0 ||
@@ -29,7 +34,7 @@ app.use(function (req, res, next) {
         return next();
     }
 
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/site/index.html');
 });
 
 app.get('/api/books', function(req, res) {
